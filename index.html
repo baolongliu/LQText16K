@@ -171,12 +171,14 @@
 <body>
     <div class="container">
         <div class="header">
-            <h3 class="title">Partially Relevant Video Retrieval</h3>
-            <p class="authors">Baolong Liu¹ &nbsp;&nbsp;&nbsp;&nbsp;
-                Ruiqing Yang¹ &nbsp;&nbsp;&nbsp;&nbsp;
-                Wenhao Xu¹ &nbsp;&nbsp;&nbsp;&nbsp;
-                Roukai Huang¹ &nbsp;&nbsp;&nbsp;&nbsp;
-                Xun Wang*¹ 
+            <h3 class="title">Going Deeper into Weak Feature Text Recognition
+                in the Wild: A New Benchmark Dataset</h3>
+            <p class="authors">Baolong Liu<sup>1</sup> &nbsp;&nbsp;&nbsp;&nbsp;
+                Ruiqing Yang<sup>2</sup> &nbsp;&nbsp;&nbsp;&nbsp;
+                Wenhao Xu<sup>3</sup>  &nbsp;&nbsp;&nbsp;&nbsp;
+                Roukai Huang<sup>4</sup> &nbsp;&nbsp;&nbsp;&nbsp;
+                Jiangfeng Dong<sup>5</sup> &nbsp;&nbsp;&nbsp;&nbsp;
+                Xun Wang<sup>6</sup>
             </p>
             <p class="affi">¹School of Computer and Information Engineering, Zhejiang Gongshang University</p>
             <!-- <p class="affi">²School of Information Science and Technology, University of Science and Technology of China</p> -->
@@ -211,12 +213,7 @@
                 </div>
             </div>
             <div id="abs"></div>
-            <pre ><tt>@inproceedings{ dong2022prvr,
-                title = {Partially Relevant Video Retrieval},
-                author = {Jianfeng Dong and Xianke Chen and Minsong Zhang and Xun Yang and Shujie Chen and Xirong Li and Xun Wang},
-                booktitle = {Proceedings of the 30th ACM International Conference on Multimedia},
-                year = {2022}
-                }</tt></pre>
+            <pre ><tt>Todo</tt></pre>
             
         </div>
         <div class="abstract">
@@ -226,30 +223,52 @@
             </span>
         </div>
         <div class="formulation">
-            <span class="title">Formulation of PRVR</span>
+            <span class="title">Introduction</span>
             <span class="title_content">
-                Given a natural language query, the task of PRVR aims to retrieve videos containing a moment that is semantically relevant to the
-                given query, from a large corpus of untrimmed videos. As the
-                moment referred to by the query is typically a small part of a
-                video, we argue that the query is partially relevant to the video.
-                It is worth pointing out that PRVR is different from conventional
-                T2V retrieval, where videos are pre-trimmed and much
-                shorter, and queries are usually fully relevant to the whole video.
+                Reading texts from natural images, also referred as
+                Scene Text Recognition (STR), is of great importance
+                in many application areas. Automatic Ship License Plate
+                Recognition (ASLPR) is firstly to localize Ship License Plate
+                (SLP) regions in the visible light images, then recognize the
+                text in those regions [1]–[4], and is a newly-introduced sub-
+                task of STR. As unique identities, SLPs play a significant role
+                in ship-to-ship communication, shore-to-ship identification and
+                waterway traffic monitoring in occasions such as canlas, ports
+                and harbors et al. . A related task is car license plate recog-
+                nition [5], which has been studied for years, and is already
+                widely used in many real scenes, e.g. autonomous vehicles,
+                vehicles tracking and smart city. Just as car license plate
+                recognition is to landway transportation, so SLP recognition
+                is to waterway transportation. ASLPR is an important issue in
+                waterway intelligent transportation systems.
             </span>
             <span class="title_content">
-                To build a PRVR model, a set of untrimmed videos are given
-                for training, where each video is associated with multiple natural language sentences. Each sentence describes the content of a
-                specific moment in the corresponding video. Note that we do not
-                have access to the start/end time points of the moments (moments
-                annotations) referred to by the sentences.
+                Recently, a few works concerning the detecting and rec-
+                ognizing of SLPs are proposed [1]–[4]. However, the re-
+                searches are very preliminary, and no public accessible SLPs
+                dataset is released also, hindering the advance of the field.
+                Although a number of benchmark datasets regarding STR have
+                been proposed [6]–[11] in the past years, it is frequent that,
+                when adopted to real applications, the cutting-edge methods
+                optimized on the current datasets often show much poorer
+                performance or generalization-ability than that reported in the
+                literature. For example, the newly presented state-of-the-art
+                (SOTA) method in [12] obtains a mean word-level recognition
+                accuracy of 96.0% already on six main-stream regular or
+                irregular text recognition datasets i.e. IIIT5k [6], CUTE80 [7],
+                SVT [8], SVTP [9], ICDAR 2013 [10] and ICDAR 2015 [11],
+                but only achieves an accuracy of 35% in our proposed SLPs
+                dataset. Obviously, there are huge gaps between research and
+                real scenes, trapping those endeavoring in STR field for a long
+                time
             </span>
-            <img src="imgs/examples_new.png" alt="" class="group_img">
+            <!-- <img src="imgs/examples_new.png" alt="" class="group_img">
             <span class="title_content">
                 An untrimmed video is considered to be partially relevant w.r.t. a given textual
                 query as long as the video contains a (short) moment relevant w.r.t.
                 the query, see the figure above. Two textual queries partially relevant to a given video. Only a specific moment in the video is relevant to the
                 corresponding query, while the other frames are irrelevant.
-            </span>
+            </span> -->
         </div>
         <div class="method">
             <span class="title">Data Visualization</span>
@@ -281,97 +300,97 @@
                 <table class="dataset" style="width: 500px;">
                     <tr>
                         <th colspan="5" align="left">Model</th>
-                        <th>P</th>
-                        <th>R</th>
-                        <th>F1</th>
+                        <th>Year</th>
+                        <th>Publisher</th>
+                        <th>Precision</th>
+                        <th>Recall</th>
+                        <th>F-Measure</th>
                     </tr>
-                    <tr class="split">
-                        <td align="left"><em>T2VR models:</em></td>
-                    </tr>
-                    <tr class="model_name">
-                        <td colspan="5" align="left" >W2VV, TMM18 <a href="#w2vv">[1]</a></td>
-                        <td>2.6</td>
-                        <td>5.6</td>
-                        <td>7.5</td>
-                        <td>20.6</td>
-                        <td>36.3</td>
-                    </tr>
-                    <tr class="model_name">
-                        <td colspan="5" align="left">HGR, CVPR20 <a href="#hgr">[2]</a></td>
-                        <td>1.7</td>
-                        <td>4.9</td>
-                        <td>8.3</td>
-                        <td>35.2</td>
-                        <td>50.1</td>
+            
+                    <tr class="model_name split">
+                        <td colspan="5" align="left" >DB++ <a href="#w2vv">[1]</a></td>
+                        <td>2022</td>
+                        <td>TPAMI</td>
+                        <td>91.63</td>
+                        <td>35.30</td>
+                        <td>50.97</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left">HTM, ICCV19 <a href="#htm">[3]</a></td>
-                        <td>3.8</td>
-                        <td>12.0</td>
-                        <td>19.1</td>
-                        <td>63.2</td>
-                        <td>98.2</td>
+                        <td colspan="5" align="left">I3CL <a href="#hgr">[2]</a></td>
+                        <td>2021</td>
+                        <td>IJCV</td>
+                        <td>49.70</td>
+                        <td>60.60</td>
+                        <td>54.66</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left" >CE, BMVC19 <a href="#ce">[4]</a></td>
-                        <td>3.7</td>
-                        <td>12.8</td>
-                        <td>20.1</td>
-                        <td>64.5</td>
-                        <td>101.1</td>
+                        <td colspan="5" align="left">EAST <a href="#htm">[3]</a></td>
+                        <td>2017</td>
+                        <td>CVPR</td>
+                        <td>80.21</td>
+                        <td>49.37</td>
+                        <td>61.30</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left">W2VV++, MM19 <a href="#w2vv++">[5]</a></td>
-                        <td>5.0</td>
-                        <td>14.7</td>
-                        <td>21.7</td>
-                        <td>61.8</td>
-                        <td>103.2</td>
+                        <td colspan="5" align="left" >FCENet <a href="#ce">[4]</a></td>
+                        <td>2021</td>
+                        <td>CVPR</td>
+                        <td>80.92</td>
+                        <td>50.82</td>
+                        <td>62.43</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left" >VSE++, BMVC19 <a href="#vse++">[6]</a></td>
-                        <td>7.5</td>
-                        <td>19.9</td>
-                        <td>27.7</td>
-                        <td>66.0</td>
-                        <td>121.1</td>
+                        <td colspan="5" align="left">DPText-DETR <a href="#w2vv++">[5]</a></td>
+                        <td>2023</td>
+                        <td>AAAI</td>
+                        <td>69.53</td>
+                        <td>72.17</td>
+                        <td>70.82</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left">DE, CVPR19 <a href="#de">[7]</a></td>
-                        <td>7.6</td>
-                        <td>20.1</td>
-                        <td>28.1</td>
-                        <td>67.6</td>
-                        <td>123.4</td>
+                        <td colspan="5" align="left" >TESTR <a href="#vse++">[6]</a></td>
+                        <td>2022</td>
+                        <td>CVPR</td>
+                        <td>80.09</td>
+                        <td>76.83</td>
+                        <td>78.43</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left">DE++, TPAMI21 <a href="#de++">[8]</a></td>
-                        <td>8.8</td>
-                        <td>21.9</td>
-                        <td>30.2</td>
-                        <td>67.4</td>
-                        <td>128.3</td>
+                        <td colspan="5" align="left">TextBPN++ <a href="#de">[7]</a></td>
+                        <td>2022</td>
+                        <td>TPAMI</td>
+                        <td>88.25</td>
+                        <td>76.70</td>
+                        <td>82.07</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left">RIVRL, TCSVT22 <a href="#rivrl">[9]</a></td>
-                        <td>9.4</td>
-                        <td>23.4</td>
-                        <td>32.2</td>
-                        <td>70.6</td>
-                        <td>135.6</td>
+                        <td colspan="5" align="left">PAN <a href="#de++">[8]</a></td>
+                        <td>2019</td>
+                        <td>ICCV</td>
+                        <td>91.76</td>
+                        <td>88.20</td>
+                        <td>89.94</td>
                     </tr>
-                    <tr class="split">
+                    <tr class="model_name">
+                        <td colspan="5" align="left">YOLOv5+CSL <a href="#rivrl">[9]</a></td>
+                        <td> </td>
+                        <td> </td>
+                        <td>88.63</td>
+                        <td>86.58</td>
+                        <td>90.77</td>
+                    </tr>
+                    <!-- <tr class="split">
                         <td align="left" colspan="8"><em>VCMR models w/o moment localization:</em></td>
-                    </tr>
+                    </tr> -->
                     <tr class="model_name">
-                        <td colspan="5" align="left">XML, ECCV20 <a href="#xml">[10]</a></td>
-                        <td>10.0</td>
-                        <td>26.5</td>
-                        <td>37.3</td>
-                        <td>81.3</td>
-                        <td>155.1</td>
+                        <td colspan="5" align="left">YOLOv8 <a href="#xml">[10]</a></td>
+                        <td> </td>
+                        <td> </td>
+                        <td>90.93</td>
+                        <td>93.83</td>
+                        <td>92.14</td>
                     </tr>
-                    <tr class="model_name">
+                    <!-- <tr class="model_name">
                         <td colspan="5" align="left">ReLoCLNet, SIGIR21 <a href="#relo">[11]</a></td>
                         <td>10.7</td>
                         <td>28.1</td>
@@ -386,119 +405,123 @@
                         <td>43.4</td>
                         <td>83.4</td>
                         <td>172.3</td>
-                    </tr>
+                    </tr> -->
                 </table>
             </div>
             <div class="datasets">
                 <span class="dataset">Text Recognition Algorithm:</span>
-                <table class="dataset" style="width: 500px;">
+                <table class="dataset" style="width: 550px;">
                     <tr>
-                        <th colspan="5" align="left">Model</th>
-                        <th>P</th>
+                        <th colspan="6" align="left">Method</th>
+                        <th>Year</th>
+                        <th>Publisher</th>
+                        <th>LM</th>
+                        <th>Params(M)</th>
                         <th>FPS</th>
-                        <th>FLOP</th>
+                        <th>NED</th>
+                        <th>Accuary</th>
                     </tr>
                     <tr class="split">
-                        <td align="left"><em>T2VR models:</em></td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left" >W2VV <a href="#w2vv">[1]</a></td>
-                        <td>2.2</td>
-                        <td>9.5</td>
-                        <td>16.6</td>
-                        <td>45.5</td>
-                        <td>73.8</td>
+                        <td colspan="6" align="left" >CRNN <a href="#w2vv">[1]</a></td>
+                        <td>2016</td>
+                        <td>TPAMI</td>
+                        <td>-</td>
+                        <td>8.59</td>
+                        <td>144.93</td>
+                        <td>43.64</td>
+                        <td>5.29</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left">HTM <a href="#htm">[3]</a></td>
-                        <td>3.7</td>
-                        <td>13.7</td>
-                        <td>22.3</td>
-                        <td>66.2</td>
-                        <td>105.9</td>
+                        <td colspan="6" align="left">TRBA <a href="#htm">[3]</a></td>
+                        <td>2019</td>
+                        <td>ICCV</td>
+                        <td>-</td>
+                        <td>33.65</td>
+                        <td>44.43</td>
+                        <td>64.76</td>
+                        <td>30.26</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left">HGR <a href="#hgr">[2]</a></td>
-                        <td>4.0</td>
-                        <td>15.0</td>
-                        <td>24.8</td>
-                        <td>63.2</td>
-                        <td>107.0</td>
+                        <td colspan="6" align="left">ViTSTR <a href="#hgr">[2]</a></td>
+                        <td>2021</td>
+                        <td>ICDAR</td>
+                        <td>-</td>
+                        <td>85.83</td>
+                        <td>83.33</td>
+                        <td>76.67</td>
+                        <td>44.60</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left" >RIVRL <a href="#rivrl">[9]</a></td>
-                        <td>5.2</td>
-                        <td>18.0</td>
-                        <td>28.2</td>
-                        <td>66.4</td>
-                        <td>117.8</td>
+                        <td colspan="6" align="left" >SVTR <a href="#rivrl">[9]</a></td>
+                        <td>2022</td>
+                        <td>IJCAI</td>
+                        <td>-</td>
+                        <td>22.33</td>
+                        <td>69.50</td>
+                        <td>80.23</td>
+                        <td>45.16</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left">VSE++ <a href="#vse++">[6]</a></td>
-                        <td>4.9</td>
-                        <td>17.7</td>
-                        <td>28.2</td>
-                        <td>67.1</td>
-                        <td>117.9</td>
+                        <td colspan="6" align="left">SemiMTR <a href="#vse++">[6]</a></td>
+                        <td>2022</td>
+                        <td>-</td>
+                        <td>&#10003;</td>
+                        <td>37.81</td>
+                        <td>5.92</td>
+                        <td>75.13</td>
+                        <td>49.76</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left" >DE++ <a href="#de++">[8]</a></td>
-                        <td>5.3</td>
-                        <td>18.4</td>
-                        <td>29.2</td>
-                        <td>68.0</td>
-                        <td>121.0</td>
+                        <td colspan="6" align="left" >PARSeq <a href="#de++">[8]</a></td>
+                        <td>2022</td>
+                        <td>ECCV</td>
+                        <td>-</td>
+                        <td>24.20</td>
+                        <td>34.13</td>
+                        <td>77.86</td>
+                        <td>56.52</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left">DE <a href="#de">[7]</a></td>
-                        <td>5.6</td>
-                        <td>18.8</td>
-                        <td>29.4</td>
-                        <td>67.8</td>
-                        <td>121.7</td>
+                        <td colspan="6" align="left">MATRN<a href="#de">[7]</a></td>
+                        <td>2022</td>
+                        <td>ECCV</td>
+                        <td>&#10003;</td>
+                        <td>45.77</td>
+                        <td>16.93</td>
+                        <td>79.74</td>
+                        <td>59.39</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left">W2VV++ <a href="#w2vv++">[5]</a></td>
-                        <td>5.4</td>
-                        <td>18.7</td>
-                        <td>29.7</td>
-                        <td>68.8</td>
-                        <td>122.6</td>
+                        <td colspan="6" align="left">ABINet<a href="#w2vv++">[5]</a></td>
+                        <td>2021</td>
+                        <td>CVPR</td>
+                        <td>&#10003;</td>
+                        <td>37.81</td>
+                        <td>24.14</td>
+                        <td>80.28</td>
+                        <td>59.71</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left">CE <a href="#ce">[4]</a></td>
-                        <td>5.5</td>
-                        <td>19.1</td>
-                        <td>29.9</td>
-                        <td>71.1</td>
-                        <td>125.6</td>
-                    </tr>
-                    <tr class="split">
-                        <td align="left" colspan="8"><em>VCMR models w/o moment localization:</em></td>
-                    </tr>
-                    <tr class="model_name">
-                        <td colspan="5" align="left">XML <a href="#xml">[10]</a></td>
-                        <td>5.7</td>
-                        <td>18.9</td>
-                        <td>30.0</td>
-                        <td>72.0</td>
-                        <td>126.6</td>
-                    </tr>
-                    <tr class="model_name">
-                        <td colspan="5" align="left">ReLoCLNet <a href="#relo">[11]</a></td>
-                        <td>5.3</td>
-                        <td>19.4</td>
-                        <td>30.6</td>
-                        <td>73.1</td>
-                        <td>128.4</td>
+                        <td colspan="6" align="left">MASTER <a href="#ce">[4]</a></td>
+                        <td>2021</td>
+                        <td>PR</td>
+                        <td>-</td>
+                        <td>69.86</td>
+                        <td>7.86</td>
+                        <td>80.53</td>
+                        <td>63.17</td>
                     </tr>
                     <tr class="model_name split">
-                        <td colspan="5" align="left">MS-SL(Ours) <a href="#ours">[12]</a></td>
-                        <td>7.1</td>
-                        <td>22.5</td>
-                        <td>34.7</td>
-                        <td>75.8</td>
-                        <td>140.1</td>
+                        <td colspan="6" align="left">Ours<a href="#ours">[12]</a></td>
+                        <td>2023</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>122</td>
+                        <td>34.41</td>
+                        <td>85.92</td>
+                        <td>66.01</td>
                     </tr>
                 </table>
             </div>
@@ -538,7 +561,7 @@
         <div class="contact">
             <span class="title">Contact</span>
             <ul>
-                <li>Baolong Liu: <b><em>xxx@gmail.com</em></li></b> 
+                <li>Baolong Liu: <b><em>liubaolongx@gmail.com</em></li></b> 
                 <li>Ruiqing Yang: <b><em>yrq991121@gmail.com</em></li></b> 
             </ul>
         </div>
