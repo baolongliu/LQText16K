@@ -1,0 +1,628 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIP</title>
+    <style>
+        * {
+            /* font-family:  Century Gothic,CenturyGothic,AppleGothic,sans-serif;; */
+            font-family: 'Times New Roman', Times, serif;
+            /* font-style: oblique; */
+            margin: 0%;
+            padding: 0%;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            text-align: center;
+            width: 1000px;
+            margin-left:auto;  
+            margin-right:auto;
+        }
+        .container > div {
+            width: 1000px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .title {
+            font-size: 40px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+        p.authors {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        p.affi {
+            padding: 0px;
+            margin: 0px;
+            font-size: 20px;
+        }
+        .model_img {
+            margin-top: 20px;
+            width: 900px;
+        }
+        span.title {
+            display: block;
+            text-align: left;
+            padding-bottom: 5px;
+            font-size: 30px;
+            border-bottom: 1.5px solid rgb(229, 229, 229);
+        }
+        span.title_content {
+            padding-top: 5px;
+            display: block;
+            text-align: justify;
+            padding-bottom: 5px;
+            font-size: 17px;
+        }
+        .performance_container {
+            display: flex;
+            justify-content: space-around;
+        }
+        span.dataset {
+            display: block;
+            font-size: 25px;
+            padding-top: 20px;
+            padding-bottom: 10px;
+            font-weight: 400;
+        }
+        img.performance_img {
+            width: 450px;
+        }
+        img.group_img {
+            width: 1000px;
+        }
+        .sources_container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        img.source_img {
+            padding-top: 30px;
+            display: block;
+            width: 100px;
+            transition: 0.5s;
+        }
+        img.source_img:hover {
+            transform: scale(120%, 120%);
+            -webkit-transform: scale(120%, 120%);
+            -moz-transform: scale(120%, 120%);
+        }
+        span.source_title {
+            display: block;
+            margin-top: 15px;
+            font-size: 25px;
+        }
+        .bib {
+            text-align: left;
+            font-weight: 400;
+        }
+        pre {
+            text-align: left;
+            display: block;
+            padding: 9.5px;
+            margin: 0 0 10px;
+            font-size: 13px;
+            line-height: 1.428571429;
+            color: #333;
+            word-break: break-all;
+            word-wrap: break-word;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        table.dataset {
+            margin: auto;
+            border-collapse: collapse;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black; 
+            margin-top: 2px;
+        }
+        tr.split {
+            border-collapse: collapse;
+            border-top: 1px solid black;
+        }
+        tr.model_name {
+            font-size: 15px;
+        }
+        td {
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+        th {
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+        a {
+            text-decoration: none;
+        }
+        a:visited, a:hover, a:link, a:active {
+            color: #333;
+        }
+        ol.reference_content {
+            margin-top: 10px;
+            padding-left: 1.2em;
+            text-align: justify;
+            font-size: 15px;
+            /* font-family:  Century Gothic,CenturyGothic,AppleGothic,sans-serif;; */
+        }
+        li {
+            padding-bottom: 15px;
+        }
+        ul {
+            margin-top: 10px;
+            padding-left: 1.2em;
+            text-align: justify;
+            font-size: 17px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h3 class="title">Partially Relevant Video Retrieval</h3>
+            <p class="authors">Baolong Liu¹ &nbsp;&nbsp;&nbsp;&nbsp;
+                Ruiqing Yang¹ &nbsp;&nbsp;&nbsp;&nbsp;
+                Wenhao Xu¹ &nbsp;&nbsp;&nbsp;&nbsp;
+                Roukai Huang¹ &nbsp;&nbsp;&nbsp;&nbsp;
+                Xun Wang*¹ 
+            </p>
+            <p class="affi">¹School of Computer and Information Engineering, Zhejiang Gongshang University</p>
+            <!-- <p class="affi">²School of Information Science and Technology, University of Science and Technology of China</p> -->
+            <!-- <p class="affi">³Key Lab of Data Engineering and Knowledge Engineering, Renmin University of China</p> -->
+        </div>
+        <div class="sources">
+            <span class="title"></span>
+            <div class="sources_container">
+                <div class="source">
+                    <a href="#" class="source_img" target="_blank">
+                        <img src="imgs/paper.svg" alt="" class="source_img">
+                    </a>
+                    <span class="source_title">Paper</span>
+                </div>
+                <div class="source">
+                    <a href="PRVR_slides.pdf" class="source_img" target="_blank">
+                        <img src="imgs/ppt.svg" alt="" class="source_img">
+                    </a>
+                    <span class="source_title">Slides</span>
+                </div>
+                <div class="source">
+                    <a href="https://github.com/HuiGuanLab/ms-sl/tree/main/dataset" class="source_img" target="_blank">
+                        <img src="imgs/data.svg" alt="" class="source_img">
+                    </a>
+                    <span class="source_title">Data</span>
+                </div>
+                <div class="source">
+                    <a href="https://github.com/HuiGuanLab/ms-sl" class="source_img" target="_blank">
+                        <img src="imgs/code.svg" alt="" class="source_img">
+                    </a>
+                    <span class="source_title">Code</span>
+                </div>
+            </div>
+            <div id="abs"></div>
+            <pre ><tt>@inproceedings{ dong2022prvr,
+                title = {Partially Relevant Video Retrieval},
+                author = {Jianfeng Dong and Xianke Chen and Minsong Zhang and Xun Yang and Shujie Chen and Xirong Li and Xun Wang},
+                booktitle = {Proceedings of the 30th ACM International Conference on Multimedia},
+                year = {2022}
+                }</tt></pre>
+            
+        </div>
+        <div class="abstract">
+            <span class="title">Abstract</span>
+            <span class="title_content">
+                TODO
+            </span>
+        </div>
+        <div class="formulation">
+            <span class="title">Formulation of PRVR</span>
+            <span class="title_content">
+                Given a natural language query, the task of PRVR aims to retrieve videos containing a moment that is semantically relevant to the
+                given query, from a large corpus of untrimmed videos. As the
+                moment referred to by the query is typically a small part of a
+                video, we argue that the query is partially relevant to the video.
+                It is worth pointing out that PRVR is different from conventional
+                T2V retrieval, where videos are pre-trimmed and much
+                shorter, and queries are usually fully relevant to the whole video.
+            </span>
+            <span class="title_content">
+                To build a PRVR model, a set of untrimmed videos are given
+                for training, where each video is associated with multiple natural language sentences. Each sentence describes the content of a
+                specific moment in the corresponding video. Note that we do not
+                have access to the start/end time points of the moments (moments
+                annotations) referred to by the sentences.
+            </span>
+            <img src="imgs/examples_new.png" alt="" class="group_img">
+            <span class="title_content">
+                An untrimmed video is considered to be partially relevant w.r.t. a given textual
+                query as long as the video contains a (short) moment relevant w.r.t.
+                the query, see the figure above. Two textual queries partially relevant to a given video. Only a specific moment in the video is relevant to the
+                corresponding query, while the other frames are irrelevant.
+            </span>
+        </div>
+        <div class="method">
+            <span class="title">Data Visualization</span>
+            <!-- <span class="title_content">
+                We formulate the PRVR subtask as a MIL problem, simultaneously viewing a video as a bag of video clips and a bag of video
+                frames. Clips and frames represent video content at different temporal scales. Based on multi-scale video representation, we propose
+                MS-SL to compute the relevance between videos and queries in a
+                coarse-to-fine manner. The structure of our proposed model is shown in the figure below.
+            </span> -->
+            <img src="imgs/data1.svg" alt="" class="">
+        </div>
+        <div class="performance">
+            <span class="title">Performance Comparision</span>
+            <span class="title_content">
+                <!-- As videos in popular T2VR datasets such as MSR-VTT, MSVD and VATEX are supposed to be fully relevant
+                to the queries, they are not suited for our experiments. Here, we
+                re-purpose three datasets commonly used for VCMR, <em>i.e.</em>, TVR,
+                Activitynet Captions, and Charades-STA, considering their
+                natural language queries partially relevant with the corresponding
+                videos (a query is typically associated with a specific moment in
+                a video). The results on the three datasets are summarized in the tables below. -->
+            </span>
+            <div class="datasets">
+                <span class="title_content">
+                    We adopted the state of the art text detection model and text recognition model to carry out relevant experiments on our dataset.
+                </span>
+                <span class="dataset">Text Detection Algorithm:</span>
+                
+                <table class="dataset" style="width: 500px;">
+                    <tr>
+                        <th colspan="5" align="left">Model</th>
+                        <th>P</th>
+                        <th>R</th>
+                        <th>F1</th>
+                    </tr>
+                    <tr class="split">
+                        <td align="left"><em>T2VR models:</em></td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left" >W2VV, TMM18 <a href="#w2vv">[1]</a></td>
+                        <td>2.6</td>
+                        <td>5.6</td>
+                        <td>7.5</td>
+                        <td>20.6</td>
+                        <td>36.3</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">HGR, CVPR20 <a href="#hgr">[2]</a></td>
+                        <td>1.7</td>
+                        <td>4.9</td>
+                        <td>8.3</td>
+                        <td>35.2</td>
+                        <td>50.1</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">HTM, ICCV19 <a href="#htm">[3]</a></td>
+                        <td>3.8</td>
+                        <td>12.0</td>
+                        <td>19.1</td>
+                        <td>63.2</td>
+                        <td>98.2</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left" >CE, BMVC19 <a href="#ce">[4]</a></td>
+                        <td>3.7</td>
+                        <td>12.8</td>
+                        <td>20.1</td>
+                        <td>64.5</td>
+                        <td>101.1</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">W2VV++, MM19 <a href="#w2vv++">[5]</a></td>
+                        <td>5.0</td>
+                        <td>14.7</td>
+                        <td>21.7</td>
+                        <td>61.8</td>
+                        <td>103.2</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left" >VSE++, BMVC19 <a href="#vse++">[6]</a></td>
+                        <td>7.5</td>
+                        <td>19.9</td>
+                        <td>27.7</td>
+                        <td>66.0</td>
+                        <td>121.1</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">DE, CVPR19 <a href="#de">[7]</a></td>
+                        <td>7.6</td>
+                        <td>20.1</td>
+                        <td>28.1</td>
+                        <td>67.6</td>
+                        <td>123.4</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">DE++, TPAMI21 <a href="#de++">[8]</a></td>
+                        <td>8.8</td>
+                        <td>21.9</td>
+                        <td>30.2</td>
+                        <td>67.4</td>
+                        <td>128.3</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">RIVRL, TCSVT22 <a href="#rivrl">[9]</a></td>
+                        <td>9.4</td>
+                        <td>23.4</td>
+                        <td>32.2</td>
+                        <td>70.6</td>
+                        <td>135.6</td>
+                    </tr>
+                    <tr class="split">
+                        <td align="left" colspan="8"><em>VCMR models w/o moment localization:</em></td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">XML, ECCV20 <a href="#xml">[10]</a></td>
+                        <td>10.0</td>
+                        <td>26.5</td>
+                        <td>37.3</td>
+                        <td>81.3</td>
+                        <td>155.1</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">ReLoCLNet, SIGIR21 <a href="#relo">[11]</a></td>
+                        <td>10.7</td>
+                        <td>28.1</td>
+                        <td>38.1</td>
+                        <td>80.3</td>
+                        <td>157.1</td>
+                    </tr>
+                    <tr class="model_name split">
+                        <td colspan="5" align="left">MS-SL(Ours) <a href="#ours">[12]</a></td>
+                        <td>13.5</td>
+                        <td>32.1</td>
+                        <td>43.4</td>
+                        <td>83.4</td>
+                        <td>172.3</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="datasets">
+                <span class="dataset">Text Recognition Algorithm:</span>
+                <table class="dataset" style="width: 500px;">
+                    <tr>
+                        <th colspan="5" align="left">Model</th>
+                        <th>P</th>
+                        <th>FPS</th>
+                        <th>FLOP</th>
+                    </tr>
+                    <tr class="split">
+                        <td align="left"><em>T2VR models:</em></td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left" >W2VV <a href="#w2vv">[1]</a></td>
+                        <td>2.2</td>
+                        <td>9.5</td>
+                        <td>16.6</td>
+                        <td>45.5</td>
+                        <td>73.8</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">HTM <a href="#htm">[3]</a></td>
+                        <td>3.7</td>
+                        <td>13.7</td>
+                        <td>22.3</td>
+                        <td>66.2</td>
+                        <td>105.9</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">HGR <a href="#hgr">[2]</a></td>
+                        <td>4.0</td>
+                        <td>15.0</td>
+                        <td>24.8</td>
+                        <td>63.2</td>
+                        <td>107.0</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left" >RIVRL <a href="#rivrl">[9]</a></td>
+                        <td>5.2</td>
+                        <td>18.0</td>
+                        <td>28.2</td>
+                        <td>66.4</td>
+                        <td>117.8</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">VSE++ <a href="#vse++">[6]</a></td>
+                        <td>4.9</td>
+                        <td>17.7</td>
+                        <td>28.2</td>
+                        <td>67.1</td>
+                        <td>117.9</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left" >DE++ <a href="#de++">[8]</a></td>
+                        <td>5.3</td>
+                        <td>18.4</td>
+                        <td>29.2</td>
+                        <td>68.0</td>
+                        <td>121.0</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">DE <a href="#de">[7]</a></td>
+                        <td>5.6</td>
+                        <td>18.8</td>
+                        <td>29.4</td>
+                        <td>67.8</td>
+                        <td>121.7</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">W2VV++ <a href="#w2vv++">[5]</a></td>
+                        <td>5.4</td>
+                        <td>18.7</td>
+                        <td>29.7</td>
+                        <td>68.8</td>
+                        <td>122.6</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">CE <a href="#ce">[4]</a></td>
+                        <td>5.5</td>
+                        <td>19.1</td>
+                        <td>29.9</td>
+                        <td>71.1</td>
+                        <td>125.6</td>
+                    </tr>
+                    <tr class="split">
+                        <td align="left" colspan="8"><em>VCMR models w/o moment localization:</em></td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">XML <a href="#xml">[10]</a></td>
+                        <td>5.7</td>
+                        <td>18.9</td>
+                        <td>30.0</td>
+                        <td>72.0</td>
+                        <td>126.6</td>
+                    </tr>
+                    <tr class="model_name">
+                        <td colspan="5" align="left">ReLoCLNet <a href="#relo">[11]</a></td>
+                        <td>5.3</td>
+                        <td>19.4</td>
+                        <td>30.6</td>
+                        <td>73.1</td>
+                        <td>128.4</td>
+                    </tr>
+                    <tr class="model_name split">
+                        <td colspan="5" align="left">MS-SL(Ours) <a href="#ours">[12]</a></td>
+                        <td>7.1</td>
+                        <td>22.5</td>
+                        <td>34.7</td>
+                        <td>75.8</td>
+                        <td>140.1</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="group">
+            <span class="title">Our SOTA Algorithm Visualization</span>
+            <span class="title_content">
+                To gain a further understanding of the individual models, we
+                define <em>moment-to-video ratio</em> (M/V) for query, which is measured
+                by its corresponding moment's length ratio in the entire video. According
+                to M/V, queries can be automatically classified into different groups,
+                which enables a fine-grained analysis of how a specific model responds to the different types of queries. 
+            </span>
+            <img id="mypoly" src="imgs/poly_raw.jpg" alt="" class="group_img">
+            <span class="title_content">
+                The performance in
+                the group with the lowest M/V is the smallest, while the group with
+                the highest M/V is the largest. The result allows us to conclude that
+                the current video retrieval baseline models better address queries
+                of larger relevance to the corresponding video. By contrast, the
+                performance we achieved is more balanced in all groups. 
+                This result shows that our proposed model is less sensitive to irrelevant
+                content in videos.
+            </span>
+        </div>
+        <div class="acknowledgement">
+            <span class="title">Acknowledgement</span>
+            <span class="title_content" >
+                This work was supported by the National
+                Key R&D Program of China (2018YFB1404102), NSFC (62172420,
+                61902347, 61976188, 62002323), the Public Welfare Technology Research Project of Zhejiang Province (LGF21F020010), the Open
+                Projects Program of the National Laboratory of Pattern Recognition,
+                the Fundamental Research Funds for the Provincial Universities of
+                Zhejiang, and Public Computing Cloud of RUC.
+            </span>
+        </div>
+        <div class="contact">
+            <span class="title">Contact</span>
+            <ul>
+                <li>Baolong Liu: <b><em>xxx@gmail.com</em></li></b> 
+                <li>Ruiqing Yang: <b><em>yrq991121@gmail.com</em></li></b> 
+            </ul>
+        </div>
+        <div class="reference">
+            <span class="title">Reference</span>
+            <ol class="reference_content">
+                <li id="w2vv">
+                    Jianfeng Dong, Xirong Li, and Cees GM Snoek. 2018. Predicting visual features
+                    from text for image and video caption retrieval. <em>IEEE Transactions on Multimedia.</em>
+                    20, 12 (2018), 3377–3388.
+                </li>
+                <li id="hgr">
+                    Shizhe Chen, Yida Zhao, Qin Jin, and Qi Wu. 2020. Fine-grained Video-Text
+                    Retrieval with Hierarchical Graph Reasoning. <em>In Proceedings of the IEEE/CVF
+                    Conference on Computer Vision and Pattern Recognition.</em> 10638–10647.
+                </li>
+                <li id="htm">
+                    Antoine Miech, Dimitri Zhukov, Jean-Baptiste Alayrac, Makarand Tapaswi, Ivan
+                    Laptev, and Josef Sivic. 2019. HowTo100M: Learning a text-video embedding by
+                    watching hundred million narrated video clips. <em>In Proceedings of the IEEE/CVF
+                    International Conference on Computer Vision.</em> 2630–2640.
+                </li>
+                <li id="ce">
+                    Yang Liu, Samuel Albanie, Arsha Nagrani, and Andrew Zisserman. 2019. Use
+                    what you have: Video retrieval using representations from collaborative experts.
+                    <em>arXiv preprint arXiv:1907.13487 (2019).</em>
+                </li>
+                <li id="w2vv++">
+                    Xirong Li, Chaoxi Xu, Gang Yang, Zhineng Chen, and Jianfeng Dong. 2019.
+                    W2VV++: Fully deep learning for ad-hoc video search. <em>In Proceedings of the 27th
+                        ACM International Conference on Multimedia.</em>  1786–1794.
+                </li>
+                <li id="vse++">
+                    Fartash Faghri, David J Fleet, Jamie Ryan Kiros, and Sanja Fidler. 2018. VSE++:
+                    Improving visual-semantic embeddings with hard negatives. <em>In Proceedings of
+                        the British Machine Vision Conference.</em> 935–943.
+                </li>
+                <li id="de">
+                    Jianfeng Dong, Xirong Li, Chaoxi Xu, Shouling Ji, Yuan He, Gang Yang, and Xun
+                    Wang. 2019. Dual encoding for zero-example video retrieval. <em>In Proceedings of
+                        the IEEE/CVF Conference on Computer Vision and Pattern Recognition.</em> 9346–9355.
+                </li>
+                <li id="de++">
+                    Jianfeng Dong, Xirong Li, Chaoxi Xu, Xun Yang, Gang Yang, Xun Wang, and
+                    Meng Wang. 2021. Dual encoding for video retrieval by text. <em>IEEE Transactions
+                        on Pattern Analysis and Machine Intelligence</em>  (2021), 1-1.
+                </li>
+                <li id="rivrl">
+                    Jianfeng Dong, Yabing Wang, Xianke Chen, Xiaoye Qu, Xirong Li, Yuan He, and
+                    Xun Wang. 2022. Reading-strategy Inspired Visual Representation Learning
+                    for Text-to-Video Retrieval. <em>IEEE Transactions on Circuits and Systems for Video
+                        Technology</em> (2022).
+                </li>
+                <li id="xml">
+                    Jie Lei, Licheng Yu, Tamara L Berg, and Mohit Bansal. 2020. TVR: A large-scale
+                    dataset for video-subtitle moment retrieval. <em>In European Conference on Computer
+                        Vision.</em> 447–463.
+                </li>
+                <li id="relo">
+                    Hao Zhang, Aixin Sun, Wei Jing, Guoshun Nan, Liangli Zhen, Joey Tianyi Zhou,
+                    and Rick Siow Mong Goh. 2021. Video corpus moment retrieval with contrastive
+                    learning. <em>In Proceedings of the 44th International ACM SIGIR Conference on Research
+                        and Development in Information Retrieval.</em> 685–695.
+                </li>
+                <li id="ours">
+                    Jianfeng Dong, Xianke Chen, Minsong Zhang, Xun Yang, Shujie Chen, Xirong Li and Xun Wang.
+                    2022. Partially Relevant Video Retrieval. <em>In Proceedings of the 30th ACM International Conference on Multimedia.</em>
+
+                </li>
+            </ol>
+        </div>
+      </div> <!-- /container -->
+    
+</body>
+
+<script>
+    var myImage = document.getElementById("mypoly");
+
+    myImage.addEventListener("mouseover", function() {
+    this.src = "imgs/poly.jpg";
+    });
+
+    myImage.addEventListener("mouseout", function() {
+    this.src = "imgs/poly_raw.jpg";
+    });
+</script>
+</html>
