@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-
+    <script type="text/javascript" src="js/showdown.min.js"></script>
     <style>
         * {
             /* font-family:  Century Gothic,CenturyGothic,AppleGothic,sans-serif;; */
@@ -20,6 +20,7 @@
             margin: 0%;
             padding: 0%;
         }
+
         html {
             scroll-behavior: smooth;
         }
@@ -27,32 +28,38 @@
         .container {
             text-align: center;
             width: 1000px;
-            margin-left:auto;  
-            margin-right:auto;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .container > div {
+
+        .container>div {
             width: 1000px;
             display: inline-block;
             margin-top: 20px;
         }
+
         .title {
             font-size: 40px;
             font-weight: 400;
             margin-bottom: 10px;
         }
+
         p.authors {
             font-size: 20px;
             margin-bottom: 10px;
         }
+
         p.affi {
             padding: 0px;
             margin: 0px;
             font-size: 20px;
         }
+
         .model_img {
             margin-top: 20px;
             width: 900px;
         }
+
         span.title {
             display: block;
             text-align: left;
@@ -60,6 +67,7 @@
             font-size: 30px;
             border-bottom: 1.5px solid rgb(229, 229, 229);
         }
+
         span.title_content {
             padding-top: 5px;
             display: block;
@@ -67,10 +75,12 @@
             padding-bottom: 5px;
             font-size: 17px;
         }
+
         .performance_container {
             display: flex;
             justify-content: space-around;
         }
+
         span.dataset {
             display: block;
             font-size: 25px;
@@ -78,37 +88,45 @@
             padding-bottom: 10px;
             font-weight: 400;
         }
+
         img.performance_img {
             width: 450px;
         }
+
         img.group_img {
             width: 1000px;
         }
+
         .sources_container {
             display: flex;
             justify-content: space-around;
             margin-bottom: 20px;
         }
+
         img.source_img {
             padding-top: 30px;
             display: block;
             width: 100px;
             transition: 0.5s;
         }
+
         img.source_img:hover {
             transform: scale(120%, 120%);
             -webkit-transform: scale(120%, 120%);
             -moz-transform: scale(120%, 120%);
         }
+
         span.source_title {
             display: block;
             margin-top: 15px;
             font-size: 25px;
         }
+
         .bib {
             text-align: left;
             font-weight: 400;
         }
+
         pre {
             text-align: left;
             display: block;
@@ -123,38 +141,49 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+
         table.dataset {
             margin: auto;
             border-collapse: collapse;
             border-top: 2px solid black;
-            border-bottom: 2px solid black; 
+            border-bottom: 2px solid black;
             margin-top: 2px;
         }
+
         tr.split {
             border-collapse: collapse;
             border-top: 1px solid black;
         }
+
         tr.model_name {
             font-size: 15px;
         }
+
         td {
             padding-top: 3px;
             padding-bottom: 3px;
             padding-left: 8px;
             padding-right: 8px;
         }
+
         th {
             padding-top: 3px;
             padding-bottom: 3px;
             padding-left: 8px;
             padding-right: 8px;
         }
+
         a {
             text-decoration: none;
         }
-        a:visited, a:hover, a:link, a:active {
+
+        a:visited,
+        a:hover,
+        a:link,
+        a:active {
             color: #333;
         }
+
         ol.reference_content {
             margin-top: 10px;
             padding-left: 1.2em;
@@ -162,74 +191,96 @@
             font-size: 15px;
             /* font-family:  Century Gothic,CenturyGothic,AppleGothic,sans-serif;; */
         }
+
         li {
             padding-bottom: 15px;
         }
+
         ul {
             margin-top: 10px;
             padding-left: 1.2em;
             text-align: justify;
             font-size: 17px;
         }
+
         .slider {
-        position: relative;
-        width: 100%;
-        height: 400px;
-        overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
         }
 
         .slider img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
 
         .slider img:first-child {
-        opacity: 1;
+            opacity: 1;
         }
 
         .prev,
         .next {
-        position: absolute;
-        top: 50%;
-        width: auto;
-        margin-top: -22px;
-        padding: 16px;
-        color: white;
-        font-weight: bold;
-        font-size: 30px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-        cursor: pointer;
-        z-index: 1;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 30px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            cursor: pointer;
+            z-index: 1;
         }
 
         .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
+            right: 0;
+            border-radius: 3px 0 0 3px;
         }
 
         .prev:hover,
         .next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.8);
         }
 
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .image-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-wrapper img {
+            max-width: 100%;
+        }
+
+        .image-title {
+            text-align: center;
+        }
     </style>
 
 </head>
+
 <body>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/mhDoLbDldZc3qpsJHpLogda//BVZbgYuw6kof4u2FrCedxOtgRZDTHgHUhOCVim" crossorigin="anonymous"></script> -->
     <div class="container">
         <div class="header">
-            <h3 class="title">Going Deeper into Weak Feature Text Recognition
-                in the Wild: A New Benchmark Dataset</h3>
+            <h3 class="title">Going Deeper into Low-quality Text Recognition in
+                the Wild: A Paired-instance Benchmark Dataset</h3>
             <p class="authors">Baolong Liu<sup>1</sup> &nbsp;&nbsp;&nbsp;&nbsp;
                 Ruiqing Yang<sup>2</sup> &nbsp;&nbsp;&nbsp;&nbsp;
-                Wenhao Xu<sup>3</sup>  &nbsp;&nbsp;&nbsp;&nbsp;
+                Wenhao Xu<sup>3</sup> &nbsp;&nbsp;&nbsp;&nbsp;
                 Roukai Huang<sup>4</sup> &nbsp;&nbsp;&nbsp;&nbsp;
                 Jiangfeng Dong<sup>5</sup> &nbsp;&nbsp;&nbsp;&nbsp;
                 Xun Wang<sup>6</sup>
@@ -260,61 +311,94 @@
                     <span class="source_title">Data</span>
                 </div>
                 <div class="source">
-                    <a href="https://github.com/HuiGuanLab/ms-sl" class="source_img" target="_blank">
+                    <a href="https://github.com/baolongliu/LQText16K" class="source_img" target="_blank">
                         <img src="imgs/code.svg" alt="" class="source_img">
                     </a>
                     <span class="source_title">Code</span>
                 </div>
             </div>
             <div id="abs"></div>
-            <pre ><tt>Todo</tt></pre>
-            
+            <!-- <pre>todo</pre> -->
+
         </div>
         <div class="abstract">
             <span class="title">Abstract</span>
             <span class="title_content">
-                TODO
+                We introduces a new Ship License Plate (SLP) dataset, which contains 16,000 ship images, each of which
+                contains at least one SLP. The establishment of the dataset is to support natural scene text recognition
+                tasks, such as text detection, text recognition, and end-to-end text recognition. The establishment of
+                the dataset faces many challenges, such as the diversity of image backgrounds, seasonality, lighting
+                conditions, character diversity, layout, and ship diversity. To address these challenges, we propose
+                some annotation rules and pairing selection methods to ensure the high quality and diversity of the
+                dataset.
+            </span>
+            <span class="title_content">
+                The dataset contains annotation information such as the location, category, and transcription of SLP
+                instances. Our paper details the annotation methods, including the use of irregular quadrilaterals to
+                represent the location of SLP instances, the classification of SLP instances into seven categories, and
+                the use of the character sequence of SLP instances as the training data for text recognition models.
+            </span>
+            <span class="title_content">
+                To further support natural scene text recognition tasks, our paper describes in detail how to select
+                paired text instances. Based on the different types of text degradation in terms of clarity and spatial
+                structure, we construct three different types of LQ-HQ text instances, namely Clarity pairs, Spatial
+                structure pairs, and Mixed degeneration pairs.
+            </span>
+            <span class="title_content">
+                Finally, the dataset undergoes multi-level statistical analysis, including image-level, SLP
+                instance-level, and pairing-level analysis. These statistical data indicate that the dataset has good
+                diversity and representativeness and is suitable for studying natural scene text recognition tasks.
+            </span>
+            <span class="title_content">
+                In conclusion, this dataset provides a challenging and diverse benchmark for natural scene text
+                recognition tasks, which can be used to develop and evaluate the performance of natural scene text
+                recognition algorithms.
             </span>
         </div>
         <div class="formulation">
             <span class="title">Introduction</span>
             <span class="title_content">
-                Reading texts from natural images, also referred as
-                Scene Text Recognition (STR), is of great importance
-                in many application areas. Automatic Ship License Plate
-                Recognition (ASLPR) is firstly to localize Ship License Plate
-                (SLP) regions in the visible light images, then recognize the
-                text in those regions [1]–[4], and is a newly-introduced sub-
-                task of STR. As unique identities, SLPs play a significant role
-                in ship-to-ship communication, shore-to-ship identification and
-                waterway traffic monitoring in occasions such as canlas, ports
-                and harbors et al. . A related task is car license plate recog-
-                nition [5], which has been studied for years, and is already
-                widely used in many real scenes, e.g. autonomous vehicles,
-                vehicles tracking and smart city. Just as car license plate
-                recognition is to landway transportation, so SLP recognition
-                is to waterway transportation. ASLPR is an important issue in
-                waterway intelligent transportation systems.
+                In this paper, we discuss the challenges and importance of recognizing low-quality text in natural
+                scenes, and propose a method of capturing Chinese ship license plates to obtain low-quality and
+                high-quality text pairs. Low-quality text in natural scenes includes two forms of degradation:
+                degradation in visual clarity and degradation in spatial structure. These degradation forms are
+                difficult for current text recognition methods to handle. By capturing Chinese ship license plates, we
+                successfully obtained low-quality and high-quality license plate pairs, which are typically affected by
+                various factors in natural scenes such as weather and lighting, making them an ideal data source for
+                researching low-quality text recognition in natural scenes.
             </span>
             <span class="title_content">
-                Recently, a few works concerning the detecting and rec-
-                ognizing of SLPs are proposed [1]–[4]. However, the re-
-                searches are very preliminary, and no public accessible SLPs
-                dataset is released also, hindering the advance of the field.
-                Although a number of benchmark datasets regarding STR have
-                been proposed [6]–[11] in the past years, it is frequent that,
-                when adopted to real applications, the cutting-edge methods
-                optimized on the current datasets often show much poorer
-                performance or generalization-ability than that reported in the
-                literature. For example, the newly presented state-of-the-art
-                (SOTA) method in [12] obtains a mean word-level recognition
-                accuracy of 96.0% already on six main-stream regular or
-                irregular text recognition datasets i.e. IIIT5k [6], CUTE80 [7],
-                SVT [8], SVTP [9], ICDAR 2013 [10] and ICDAR 2015 [11],
-                but only achieves an accuracy of 35% in our proposed SLPs
-                dataset. Obviously, there are huge gaps between research and
-                real scenes, trapping those endeavoring in STR field for a long
-                time
+                We created a benchmark dataset for recognizing low-quality text in natural scenes using these data. The
+                dataset includes various forms of low-quality and high-quality license plate pairs, such as low-high
+                pairs in visual clarity, low-high pairs in spatial structure, and mixed degradation low-high pairs. In
+                addition, we propose a method of model training using MAE pre-training and permutation language models.
+                This method achieved state-of-the-art recognition results on our dataset. These experimental results
+                show that our method is highly effective for recognizing low-quality text in natural scenes.
+
+            </span>
+            <span class="title_content">
+                Furthermore, we discuss the difficulties in obtaining low-quality and high-quality text pairs. In
+                natural scenes, obtaining these text pairs is challenging because such text typically does not appear
+                together in one scene. However, by capturing Chinese ship license plates, we successfully obtained
+                low-quality and high-quality license plate pairs. These license plates are typically affected by various
+                factors in natural scenes such as weather and lighting, making them an ideal data source for researching
+                low-quality text recognition in natural scenes.
+            </span>
+            <span class="title_content">
+
+                Finally, we describe the process of constructing the benchmark dataset for recognizing low-quality text
+                in natural scenes, including the composition of the dataset, labeling methods, and statistical analysis.
+                The dataset contains various forms of low-quality and high-quality license plate pairs and has undergone
+                multi-level statistical analysis, making it highly diverse and representative, suitable for researching
+                the task of recognizing low-quality text in natural scenes.
+
+
+            </span>
+            <span class="title_content">
+                Our method and dataset provide a challenging and diverse benchmark for the task of recognizing
+                low-quality text in natural scenes. This benchmark is important for developing and evaluating algorithms
+                for recognizing low-quality text in natural scenes. We believe that this work will provide valuable
+                reference and guidance for future research.
             </span>
             <!-- <img src="imgs/examples_new.png" alt="" class="group_img">
             <span class="title_content">
@@ -325,74 +409,273 @@
             </span> -->
         </div>
         <div class="method">
-            <span class="title">Data Visualization</span>
-            <!-- <span class="title_content">
-                We formulate the PRVR subtask as a MIL problem, simultaneously viewing a video as a bag of video clips and a bag of video
-                frames. Clips and frames represent video content at different temporal scales. Based on multi-scale video representation, we propose
-                MS-SL to compute the relevance between videos and queries in a
-                coarse-to-fine manner. The structure of our proposed model is shown in the figure below.
-            </span> -->
-         
+            <span class="title">Data Overview</span>
             <div>
-                <div id="carouselExampleIndicators" class="carousel slide" style="width: 500px;
-                height: 240px;margin: auto;">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="imgs/1.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="imgs/2.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="imgs/3.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="imgs/4.png" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="imgs/5.png" class="d-block w-100" alt="...">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
+                <div class="image-container">
+                    <div class="image-wrapper">
+                        <img src="imgs/number_per_pos.png" alt="Image 1">
+                        <div class="image-title"> Number of images in different locations</div>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="imgs/number_per_season.png" alt="Image 2">
+                        <div class="image-title">Number of images in different seasons</div>
+                    </div>
 
+                </div>
+                <div class="image-container">
+                    <div class="image-wrapper">
+                        <img src="imgs/heatmap_diff_year_month.jpg" alt="Image 3">
+                        <div class="image-title">Distribution of the number of images in different years and months
+                        </div>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="imgs/day_or_night.png" alt="Image 4">
+                        <div class="image-title">Number of images during day and night</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="method">
+            <span class="title">Perview</span>
+            <span class="title_content">
+                Hangzhou, the southern terminus of the Beijing-Hangzhou Grand Canal, has a well-developed waterway
+                transportation system with numerous ships passing through day and night. All the images utilized in this
+                work were acquired in Hangzhou City, Zhejiang Province, China to ensure diversity in image backgrounds.
+                The images were captured from eight different locations of three different rivers: the Beijing-Hangzhou
+                Grand Canal, the Qiantang River, and the Hangzhou-Ningbo Canal, with different viewpoints. The imaging
+                quality of cameras in the wild may differ greatly depending on the season, day, and weather, and to
+                cover a wide range of imaging environments, especially in extreme situations, the time span of image
+                capturing lasted four years. The Hikvision iDS-2CD9371-KS seven-megapixel intelligent traffic network
+                camera was used at each site to capture images of ships.
+                We randomly sampled an image from 8 locations, and the equipment used for the capture was the Hikvision
+                iDS-2CD9371-KS seven megapixel intelligent traffic network camera.
+            </span>
+            <div>
+                <div id="carouselExampleIndicators_preview" class="carousel slide" style="margin: auto;">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="imgs/O_20220102_16_41_48_437250.jpg" class="d-block w-100" alt="...">
+                            <!-- <div class="image-title">Clarity pairs</div> -->
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="imgs/O_20220107_23_36_26_171875.jpg" class="d-block w-100" alt="...">
+                            <!-- <div class="image-title">Clarity pairs</div> -->
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="imgs/O_20220108_10_48_03_066875.jpg" class="d-block w-100" alt="...">
+                            <!-- <div class="image-title">Clarity pairs</div> -->
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="imgs/O_20180706_12_01_09_765625.jpg" class="d-block w-100" alt="...">
+                            <!-- <div class="image-title">Clarity pairs</div> -->
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="imgs/O_20220519_05_19_15_911475.jpg" class="d-block w-100" alt="...">
+                            <!-- <div class="image-title">Clarity pairs</div> -->
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="imgs/T_20211201_06_53_48_446553.jpg" class="d-block w-100" alt="...">
+                            <!-- <div class="image-title">Clarity pairs</div> -->
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="imgs/T_20220601_08_05_10_921875.jpg" class="d-block w-100" alt="...">
+                            <!-- <div class="image-title">Clarity pairs</div> -->
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="imgs/O_20210816_14_05_41_187500.jpg" class="d-block w-100" alt="...">
+                            <!-- <div class="image-title">Clarity pairs</div> -->
+                        </div>
+
+                    </div>
+                    <button class="carousel-control-prev" type="button"
+                        data-bs-target="#carouselExampleIndicators_preview" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="false" style="color: black;"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                        data-bs-target="#carouselExampleIndicators_preview" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="false" style="color: black;"></span>
+                        <span class="visually-hidden" style="color: black;">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="method">
+            <span class="title">Scene Text Recognition Data Visualization</span>
+            <div class="image-wrapper">
+                <img src="imgs/annotation.png" alt="...">
+                <div class="image-title">Examples of the 7 categories and Our annotations</div>
+            </div>
+        </div>
+        <!-- <div class="method">
+            <span class="title">Paired Data Visualization</span>
+            <div class="image-wrapper">
+                <img src="imgs/PPT_visual_new2.png" alt="...">
+                <div class="image-title">Clarity pairs</div>
+            </div>
+            <div class="image-wrapper">
+                <img src="imgs/PPT_space_new3.png" alt="...">
+                <div class="image-title">Spatial structure pairs</div>
+            </div>
+            <div class="image-wrapper">
+                <img src="imgs/PPT_space_visual.png" alt="...">
+                <div class="image-title">Mixed degeneration pairs</div>
             </div>
 
-              
-            
-            
-        </div>
-        <div class="performance">
-            <span class="title">Performance Comparision</span>
+        </div> -->
+        <div class="method">
+            <span class="title">Paired Data Visualization</span>
             <span class="title_content">
-                <!-- As videos in popular T2VR datasets such as MSR-VTT, MSVD and VATEX are supposed to be fully relevant
-                to the queries, they are not suited for our experiments. Here, we
-                re-purpose three datasets commonly used for VCMR, <em>i.e.</em>, TVR,
-                Activitynet Captions, and Charades-STA, considering their
-                natural language queries partially relevant with the corresponding
-                videos (a query is typically associated with a specific moment in
-                a video). The results on the three datasets are summarized in the tables below. -->
+                1) Clarity pairs: In order to enable the algorithm to restore
+                the clarity and recognition of the LQ text, we manually
+                selected a subset of text pairs containing identical character
+                sequences of HQ clear text and LQ degraded text. Specifically,
+                we first select a character-clear and unambiguous HQ SLP
+                image from a certain ship, and then search an LQ SLP image
+                from the same ship that contained the same character sequence
+                to form an LQ-HQ text pair. the searched clarity degradation SLP
+                image may contain blurry, occluded,and abnormal lighting conditions that cause abnormal charac-
+                ter gray-scale values.
             </span>
+
+            <span class="title_content">
+                2) Spatial structure pairs: Another major type of degra-
+                dation for LQ text is spatial structure degradation. Therefore,
+                we have also selected different forms of spatial structure LQ-
+                HQ text pairs with a specific aim. The selection of these
+                image pairs was also performed manually. In detail, we first
+                select an HQ SLP with relatively regular character distribution
+                that is easy for existing algorithms to recognize. Then, we
+                search for an LQ SLP with the same character sequence but
+                different character spatial structures.
+
+            </span>
+            <span class="title_content">
+
+                3) Mixed degeneration pairs: Taking into account the hy-
+                brid nature of text degradation, many LQ texts in reality
+                not only suffer from degradation in terms of clarity but also
+                from degradation in terms of spatial structure. Therefore,
+                constructing text image pairs that contain various types of
+                degradation is also very necessary. Meanwhile, in order to
+                expand the number of text image pairs, we further employ an
+                image similarity calculation algorithm, SSIM [36], to select a
+                larger scale of LQ-HQ text image pairs. The SSIM algorithm is
+                a popular method for calculating the similarity of image pairs.
+                It considers the similarity of images in terms of brightness,
+                contrast, and structure simultaneously. Based on the algorithm-
+                based confidence of image similarity, we not only expand the
+                number of clarity-type and spatial structure-type image pairs,
+                but also obtained LQ-HQ image pairs that simultaneously
+                contain clarity and spatial structure differences
+            </span>
+            <div>
+                <div id="carouselExampleIndicators" class="carousel slide" style="margin: auto;">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="imgs/PPT_visual_new2.png" class="d-block w-100" alt="...">
+                            <div class="image-title">Clarity pairs</div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="imgs/PPT_space_new3.png" class="d-block w-100" alt="...">
+                            <div class="image-title">Spatial structure pairs</div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="imgs/PPT_space_visual.png" class="d-block w-100" alt="...">
+                            <div class="image-title">Mixed degeneration pairs</div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="false" style="color: black;"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="false" style="color: black;"></span>
+                        <span class="visually-hidden" style="color: black;">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="method">
+            <span class="title">Paired Data Vs. TextZoom</span>
+            <div>
+                <div class="image-container">
+                    <div class="image-wrapper">
+                        <img src="imgs/TextZoom_vis.png" alt="Image 1">
+                        <div class="image-title">TextZoom</div>
+                    </div>
+
+
+                </div>
+                <div class="image-container">
+                    <div class="image-wrapper">
+                        <img src="imgs/PPT.png" alt="Image 2">
+                        <div class="image-title">Our Paired Data</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="method">
+            <span class="title">Data Analysis</span>
+            <div>
+                <div class="image-container">
+                    <div class="image-wrapper">
+                        <img src="imgs/width.png" alt="Image 1">
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="imgs/height.png" alt="Image 1">
+                    </div>
+
+                </div>
+                <div class="image-container">
+                    <div class="image-wrapper">
+                        <img src="imgs/char_len.png" alt="Image 2">
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="imgs/type_count.png" alt="Image 2">
+                    </div>
+                </div>
+                <div class="image-container">
+                    <div class="image-wrapper">
+                        <img src="imgs/char_top50.png" alt="Image 2">
+                        <div class="image-title">top 50 characters in instance</div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <div class="image-wrapper">
+                        <img src="imgs/number_of_ship_per_port.png" alt="Image 2">
+                        <div class="image-title">number of ship per port</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="performance">
+            <span class="title">Algorithm Performance Comparision</span>
+
             <div class="datasets">
                 <span class="title_content">
-                    We adopted the state of the art text detection model and text recognition model to carry out relevant experiments on our dataset.
+                    For detection, When selecting benchmark
+                    algorithms, we considered multiple factors including perfor-
+                    mance, generalization, and stability. After thorough research
+                    and comparison, we selected ten benchmark algorithms, in-
+                    cluding six cutting-edge text detection algorithms, two classic
+                    text detection algorithms, and two object detection algorithms.
+                    The cutting-edge algorithms represent the best performance of
+                    current detectors, while the classic text detection and object
+                    detection algorithms serve as supplements.
                 </span>
                 <span class="dataset">Text Detection Algorithm:</span>
-                
+
                 <table class="dataset" style="width: 500px;">
                     <tr>
                         <th colspan="5" align="left">Model</th>
@@ -406,7 +689,7 @@
                         <td align="left"><em>T2VR models:</em></td>
                     </tr> -->
                     <tr class="model_name split">
-                        <td colspan="5" align="left" >DB++ <a href="#db++">[1]</a></td>
+                        <td colspan="5" align="left">DB++ <a href="#db++">[1]</a></td>
                         <td>2022</td>
                         <td>TPAMI</td>
                         <td>91.63</td>
@@ -430,7 +713,7 @@
                         <td>61.30</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left" >FCENet <a href="#fcenet">[4]</a></td>
+                        <td colspan="5" align="left">FCENet <a href="#fcenet">[4]</a></td>
                         <td>2021</td>
                         <td>CVPR</td>
                         <td>80.92</td>
@@ -446,7 +729,7 @@
                         <td>70.82</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="5" align="left" >TESTR <a href="#testr">[6]</a></td>
+                        <td colspan="5" align="left">TESTR <a href="#testr">[6]</a></td>
                         <td>2022</td>
                         <td>CVPR</td>
                         <td>80.09</td>
@@ -487,7 +770,21 @@
                     </tr>
                 </table>
             </div>
+            <br>
+
+            </br>
             <div class="datasets">
+                <span class="title_content">
+                    For recognition, we uniformly resized the images to a size of 224*224, with 3 channels for the
+                    image. The encoder and decoder have a dimension of 768, and there are a total of 559 characters,
+                    including English, Chinese, numbers, and common punctuation marks. The max label length is set to
+                    50, and the overall architecture uses an encoder-decoder framework, which is divided into two stages
+                    for training. In the first stage, we used a pre-training encoder scheme to train a more outstanding
+                    encoder. Our encoder is inspired by the mask auto-encoder, which trains the encoder in the form of
+                    image restoration. In the second stage, we combined the pre-trained encoder with Permutation
+                    Language Model to connect with our downstream tasks, which is competitive in terms of convergence
+                    speed and inference speed, and the accuracy reaches State-Of-The-Art in our datasets.
+                </span>
                 <span class="dataset">Text Recognition Algorithm:</span>
                 <table class="dataset" style="width: 600px;">
                     <tr>
@@ -503,7 +800,7 @@
                     <tr class="split">
                     </tr>
                     <tr class="model_name">
-                        <td colspan="6" align="left" >CRNN <a href="#CRNN">[9]</a></td>
+                        <td colspan="6" align="left">CRNN <a href="#CRNN">[9]</a></td>
                         <td>2016</td>
                         <td>TPAMI</td>
                         <td>-</td>
@@ -533,7 +830,7 @@
                         <td>44.60</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="6" align="left" >SVTR <a href="#SVTR">[12]</a></td>
+                        <td colspan="6" align="left">SVTR <a href="#SVTR">[12]</a></td>
                         <td>2022</td>
                         <td>IJCAI</td>
                         <td>-</td>
@@ -553,7 +850,7 @@
                         <td>49.76</td>
                     </tr>
                     <tr class="model_name">
-                        <td colspan="6" align="left" >PARSeq <a href="#PARSeq">[14]</a></td>
+                        <td colspan="6" align="left">PARSeq <a href="#PARSeq">[14]</a></td>
                         <td>2022</td>
                         <td>ECCV</td>
                         <td>-</td>
@@ -608,131 +905,243 @@
         <div class="group">
             <span class="title">Our SOTA Algorithm Visualization</span>
             <span class="title_content">
-                To gain a further understanding of the individual models, we
-                define <em>moment-to-video ratio</em> (M/V) for query, which is measured
-                by its corresponding moment's length ratio in the entire video. According
-                to M/V, queries can be automatically classified into different groups,
-                which enables a fine-grained analysis of how a specific model responds to the different types of queries. 
+
             </span>
             <img id="mypoly" src="imgs/poly_raw.jpg" alt="" class="group_img">
             <span class="title_content">
-                The performance in
-                the group with the lowest M/V is the smallest, while the group with
-                the highest M/V is the largest. The result allows us to conclude that
-                the current video retrieval baseline models better address queries
-                of larger relevance to the corresponding video. By contrast, the
-                performance we achieved is more balanced in all groups. 
-                This result shows that our proposed model is less sensitive to irrelevant
-                content in videos.
+
             </span>
         </div>
         <div class="acknowledgement">
             <span class="title">Acknowledgement</span>
-            <span class="title_content" >
+            <span class="title_content">
                 This work was supported by the National
                 Key R&D Program of China (2018YFB1404102), NSFC (62172420,
-                61902347, 61976188, 62002323), the Public Welfare Technology Research Project of Zhejiang Province (LGF21F020010), the Open
+                61902347, 61976188, 62002323), the Public Welfare Technology Research Project of Zhejiang Province
+                (LGF21F020010), the Open
                 Projects Program of the National Laboratory of Pattern Recognition,
                 the Fundamental Research Funds for the Provincial Universities of
                 Zhejiang, and Public Computing Cloud of RUC.
             </span>
         </div>
+
         <div class="contact">
-            <span class="title">Contact</span>
+           
+            <span class="title">Contributors and Contact Information of the Dataset</span>
+
+            <!-- <div id="result_md"></div>
+             -->
+
+             <span class="title_content">
+                Below are the creators and maintainers of our dataset. Please feel free to contact us for more information:
+            </span>
+             <span class="title_content">
+                <li>Creator: <b><em>School of Computer and Information Engineering, Zhejiang Gongshang University</em></li></b>
+                <li>Maintainer: <b><em>School of Computer and Information Engineering, Zhejiang Gongshang University</em></li></b>
+            </span>
+           
+          
+          
+            <span class="title_content">
+               We welcome your feedback and opinions and will reply to you as soon as possible. If you encounter common problems with the dataset, please refer to the following questions and answers:
+            </span>
+            <span class="title_content">
+               Question 1: What is the size and dimension of the dataset?
+            </span>
+            <span class="title_content">
+                <span style="padding-left: 40px;">Answer: The dataset contains 16000 samples, each with at least one attribute</span>
+            </span>
+            <span class="title_content">
+               Question 2: What is the authorization and license of the dataset?
+            </span>
+            <span class="title_content">
+                <span style="padding-left: 40px;">Answer: The authorization and license of the dataset is CDLA-Sharing-1.0. Please see our authorization and license page for more information.</span>
+            </span>
+            <span class="title_content">
+               Question 3: What are the download and access methods of the dataset?
+            </span>
+            <span class="title_content">
+                <span style="padding-left: 40px;">Answer: You can download and access the dataset through the following methods:</span>
+                <span class="title_content" style="padding-left: 100px;"> Method 1: Visit our dataset page and click the download button.</span>
+                 <span class="title_content" style="padding-left: 100px;"> Method 2: Contact our data science team and request access to the dataset</span>
+            </span>
+            
+
+             <span class="title_content">
+               Question 4: What are the usage examples and application scenarios of the dataset?
+            </span>
+            <span class="title_content">
+                <span style="padding-left: 40px;">Answer: The dataset can be used in the following application scenarios:</span>
+                <span class="title_content" style="padding-left: 100px;"> Scenario 1: Scientific research</span>
+                 <span class="title_content" style="padding-left: 100px;"> Scenario 2: Verify OCR model performance</span>
+            </span>
+
+             <span class="title_content">
+               Question 5: What are the limitations and warnings of the dataset?
+            </span>
+            <span class="title_content">
+                <span style="padding-left: 40px;">Answer: The limitations and warnings of the dataset is commercial use. Please see our dataset limitations and warnings page for more information.</span>
+            </span>
+            <span class="title_content">
+               If you have any questions or suggestions regarding the dataset, please email us at the following address:
+            </span>
             <ul>
-                <li>Baolong Liu: <b><em>liubaolongx@gmail.com</em></li></b> 
-                <li>Ruiqing Yang: <b><em>yrq991121@gmail.com</em></li></b> 
+                <li>Baolong Liu: <b><em>liubaolongx@gmail.com</em></li></b>
+                <li>Ruiqing Yang: <b><em>yrq991121@gmail.com</em></li></b>
             </ul>
         </div>
         <div class="reference">
             <span class="title">Reference</span>
             <ol class="reference_content">
                 <li id="db++">
-                    Liao M, Zou Z, Wan Z, et al. Real-time scene text detection with differentiable binarization and adaptive scale fusion[J]. IEEE Transactions on Pattern Analysis and Machine Intelligence, 2022, 45(1): 919-931.
+                    Liao M, Zou Z, Wan Z, et al. Real-time scene text detection with differentiable binarization and
+                    adaptive scale fusion[J]. IEEE Transactions on Pattern Analysis and Machine Intelligence, 2022,
+                    45(1): 919-931.
                 </li>
                 <li id="i3cl">
-                    Du B, Ye J, Zhang J, et al. I3cl: intra-and inter-instance collaborative learning for arbitrary-shaped scene text detection[J]. International Journal of Computer Vision, 2022, 130(8): 1961-1977. 
+                    Du B, Ye J, Zhang J, et al. I3cl: intra-and inter-instance collaborative learning for
+                    arbitrary-shaped scene text detection[J]. International Journal of Computer Vision, 2022, 130(8):
+                    1961-1977.
                 </li>
                 <li id="east">
-                    Zhou X, Yao C, Wen H, et al. East: an efficient and accurate scene text detector[C]//Proceedings of the IEEE conference on Computer Vision and Pattern Recognition. 2017: 5551-5560. 
+                    Zhou X, Yao C, Wen H, et al. East: an efficient and accurate scene text detector[C]//Proceedings of
+                    the IEEE conference on Computer Vision and Pattern Recognition. 2017: 5551-5560.
                 </li>
                 <li id="fcenet">
-                    Zhu Y, Chen J, Liang L, et al. Fourier contour embedding for arbitrary-shaped text detection[C]//Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. 2021: 3123-3131. 
+                    Zhu Y, Chen J, Liang L, et al. Fourier contour embedding for arbitrary-shaped text
+                    detection[C]//Proceedings of the IEEE/CVF conference on computer vision and pattern recognition.
+                    2021: 3123-3131.
                 </li>
                 <li id="dptext-detr">
-                    Ye M, Zhang J, Zhao S, et al. Dptext-detr: Towards better scene text detection with dynamic points in transformer[J]. arXiv preprint arXiv:2207.04491, 2022. 
+                    Ye M, Zhang J, Zhao S, et al. Dptext-detr: Towards better scene text detection with dynamic points
+                    in transformer[J]. arXiv preprint arXiv:2207.04491, 2022.
                 </li>
                 <li id="testr">
-                    Zhang X, Su Y, Tripathi S, et al. Text spotting transformers[C]//Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2022: 9519-9528. 
+                    Zhang X, Su Y, Tripathi S, et al. Text spotting transformers[C]//Proceedings of the IEEE/CVF
+                    Conference on Computer Vision and Pattern Recognition. 2022: 9519-9528.
                 </li>
                 <li id="textbpn++">
-                    Zhang S X, Zhu X, Yang C, et al. Arbitrary shape text detection via boundary transformer[J]. arXiv preprint arXiv:2205.05320, 2022. 
+                    Zhang S X, Zhu X, Yang C, et al. Arbitrary shape text detection via boundary transformer[J]. arXiv
+                    preprint arXiv:2205.05320, 2022.
                 </li>
                 <li id="pan">
-                    Wang W, Xie E, Song X, et al. Efficient and accurate arbitrary-shaped text detection with pixel aggregation network[C]//Proceedings of the IEEE/CVF international conference on computer vision. 2019: 8440-8449. 
+                    Wang W, Xie E, Song X, et al. Efficient and accurate arbitrary-shaped text detection with pixel
+                    aggregation network[C]//Proceedings of the IEEE/CVF international conference on computer vision.
+                    2019: 8440-8449.
                 </li>
-                
+
                 <li id="CRNN">
-                    Shi B, Bai X, Yao C. An end-to-end trainable neural network for image-based sequence recognition and its 
+                    Shi B, Bai X, Yao C. An end-to-end trainable neural network for image-based sequence recognition and
+                    its
                     application to scene text recognition[J].
                     IEEE transactions on pattern analysis and machine intelligence.
                     2016, 39(11): 2298-2304.
                 </li>
                 <li id="TRBA">
-                    Baek J, Kim G, Lee J, et al. What is wrong with scene text recognition model comparisons? dataset and model analysis[C]
+                    Baek J, Kim G, Lee J, et al. What is wrong with scene text recognition model comparisons? dataset
+                    and model analysis[C]
                     Proceedings of the IEEE/CVF international conference on computer vision. 2019: 4715-4723.
                 </li>
                 <li id="ViTSTR">
                     Atienza R. Vision transformer for fast and efficient scene text recognition[C]
-                    Document Analysis and Recognition–ICDAR 2021: 16th International Conference, Lausanne, Switzerland, September 5–10, 2021, Proceedings, Part I 16. Springer International Publishing,
-                     2021: 319-334.
+                    Document Analysis and Recognition–ICDAR 2021: 16th International Conference, Lausanne, Switzerland,
+                    September 5–10, 2021, Proceedings, Part I 16. Springer International Publishing,
+                    2021: 319-334.
                 </li>
                 <li id="SVTR">
-                    Du Y, Chen Z, Jia C, et al. Svtr: Scene text recognition with a single visual model[J] 
+                    Du Y, Chen Z, Jia C, et al. Svtr: Scene text recognition with a single visual model[J]
                     arXiv preprint arXiv:2205.00159,2022.
                 </li>
                 <li id="SemiMTR">
-                    Aberdam A, Ganz R, Mazor S, et al. Multimodal semi-supervised learning for text recognition[J]. 
+                    Aberdam A, Ganz R, Mazor S, et al. Multimodal semi-supervised learning for text recognition[J].
                     arXiv preprint arXiv:2205.03873,2022.
                 </li>
                 <li id="PARSeq">
                     Bautista D, Atienza R. Scene text recognition with permuted autoregressive sequence models[C]
-                    Computer Vision–ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23–27, 2022, Proceedings, Part XXVIII. Cham: Springer Nature Switzerland,
+                    Computer Vision–ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23–27, 2022,
+                    Proceedings, Part XXVIII. Cham: Springer Nature Switzerland,
                     2022: 178-196.
                 </li>
                 <li id="MATRN">
-                    Na B, Kim Y, Park S. Multi-modal text recognition networks: Interactive enhancements between visual and semantic features[C]
-                    Computer Vision–ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23–27, 2022, Proceedings, Part XXVIII. Cham: Springer Nature Switzerland
+                    Na B, Kim Y, Park S. Multi-modal text recognition networks: Interactive enhancements between visual
+                    and semantic features[C]
+                    Computer Vision–ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23–27, 2022,
+                    Proceedings, Part XXVIII. Cham: Springer Nature Switzerland
                     2022: 446-463.
-                   
+
                 </li>
                 <li id="ABINet">
-                    Fang S, Xie H, Wang Y, et al. Read like humans: Autonomous, bidirectional and iterative language modeling for scene text recognition[C]
+                    Fang S, Xie H, Wang Y, et al. Read like humans: Autonomous, bidirectional and iterative language
+                    modeling for scene text recognition[C]
                     Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition.
-                     2021: 7098-7107.
-                   
+                    2021: 7098-7107.
+
                 </li>
                 <li id="MASTER">
-                    Lu N, Yu W, Qi X, et al. Master: Multi-aspect non-local network for scene text recognition[J]. Pattern Recognition.2021: 117: 107980.
+                    Lu N, Yu W, Qi X, et al. Master: Multi-aspect non-local network for scene text recognition[J].
+                    Pattern Recognition.2021: 117: 107980.
                 </li>
                 <li id="Ours">
-                   Todo
+                    Todo
                 </li>
             </ol>
         </div>
-      </div> <!-- /container -->
-    
+    </div> <!-- /container -->
+
 </body>
 
 <script>
+
+    //  window.onload = function(){
+    //     //获取要转换的文字
+    // text = `
+    // Contributors and Contact Information of the Dataset
+
+    // Below are the creators and maintainers of our dataset. Please feel free to contact us for more information:
+
+    // - Creator: XXX Technology Co., Ltd.
+    // - Maintainer: Data Science Team of XXX Technology Co., Ltd.
+
+    // If you have any questions or suggestions regarding the dataset, please email us at the following address:
+
+    // - Email: [data@xxx.com](mailto:data@xxx.com)
+
+    // We welcome your feedback and opinions and will reply to you as soon as possible. If you encounter common problems with the dataset, please refer to the following questions and answers:
+
+    // - Question 1: What is the size and dimension of the dataset?
+    //     - Answer: The dataset contains XXXX samples, each with XXXX attributes.
+    // - Question 2: What is the authorization and license of the dataset?
+    //     - Answer: The authorization and license of the dataset is XXXX. Please see our authorization and license page for more information.
+    // - Question 3: What are the download and access methods of the dataset?
+    //     - Answer: You can download and access the dataset through the following methods:
+    //         - Method 1: Visit our dataset page and click the download button.
+    //         - Method 2: Contact our data science team and request access to the dataset.
+    // - Question 4: What are the usage examples and application scenarios of the dataset?
+    //     - Answer: The dataset can be used in the following application scenarios:
+    //         - Scenario 1: XXX
+    //         - Scenario 2: XXX
+    // - Question 5: What are the limitations and warnings of the dataset?
+    //     - Answer: The limitations and warnings of the dataset are XXXX. Please see our dataset limitations and warnings page for more information.
+    //     `
+    // //创建实例
+    // var converter = new showdown.Converter();
+    // //进行转换
+    // var html = converter.makeHtml(text);
+    // //展示到对应的地方  result便是id名称
+    // document.getElementById("result_md").innerHTML = html;
+    // console.log("aaaaaaa")
+    // }
+    
+
+
     var myImage = document.getElementById("mypoly");
 
-    myImage.addEventListener("mouseover", function() {
-    this.src = "imgs/poly.jpg";
+    myImage.addEventListener("mouseover", function () {
+        this.src = "imgs/poly.jpg";
     });
 
-    myImage.addEventListener("mouseout", function() {
-    this.src = "imgs/poly_raw.jpg";
+    myImage.addEventListener("mouseout", function () {
+        this.src = "imgs/poly_raw.jpg";
     });
 
 
@@ -740,18 +1149,24 @@
     showSlides(slideIndex);
 
     function plusSlides(n) {
-    showSlides(slideIndex += n);
+        showSlides(slideIndex += n);
     }
 
     function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("slider")[0].getElementsByTagName("img");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.opacity = 0;
+        var i;
+        var slides = document.getElementsByClassName("slider")[0].getElementsByTagName("img");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.opacity = 0;
+        }
+        slides[slideIndex - 1].style.opacity = 1;
     }
-    slides[slideIndex-1].style.opacity = 1;
-    }
+
 </script>
+
 </html>
