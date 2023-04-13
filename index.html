@@ -285,11 +285,29 @@
                 Jiangfeng Dong<sup>5</sup> &nbsp;&nbsp;&nbsp;&nbsp;
                 Xun Wang<sup>6</sup>
             </p>
-            <p class="affi">¹School of Computer and Information Engineering, Zhejiang Gongshang University</p>
+            <p class="affi">¹School of Computer Science and Technology, Zhejiang Gongshang University</p>
             <!-- <p class="affi">²School of Information Science and Technology, University of Science and Technology of China</p> -->
             <!-- <p class="affi">³Key Lab of Data Engineering and Knowledge Engineering, Renmin University of China</p> -->
         </div>
         <div class="sources">
+            <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Tip</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> -->
+                        <div class="modal-body">
+                            Sorry,When the paper is accepted, our dataset will be made public.
+                        </div>
+                        <!-- <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary">确定</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            
             <span class="title"></span>
             <div class="sources_container">
                 <div class="source">
@@ -299,13 +317,17 @@
                     <span class="source_title">Paper</span>
                 </div>
                 <div class="source">
-                    <a href="PRVR_slides.pdf" class="source_img" target="_blank">
+                    <a href="#" class="source_img" target="_blank">
                         <img src="imgs/ppt.svg" alt="" class="source_img">
                     </a>
                     <span class="source_title">Slides</span>
                 </div>
                 <div class="source">
-                    <a href="https://github.com/HuiGuanLab/ms-sl/tree/main/dataset" class="source_img" target="_blank">
+
+                    <!-- <a href="#" data-bs-toggle="modal" data-bs-target="#myModal">
+                        <img src="imgs/data.svg" alt="" class="source_img">
+                    </a> -->
+                    <a href="https://github.com/baolongliu/LQText16K" class="source_img" target="_blank">
                         <img src="imgs/data.svg" alt="" class="source_img">
                     </a>
                     <span class="source_title">Data</span>
@@ -324,89 +346,62 @@
         <div class="abstract">
             <span class="title">Abstract</span>
             <span class="title_content">
-                We introduces a new Ship License Plate (SLP) dataset, which contains 16,000 ship images, each of which
+                <!-- We introduces a new Ship License Plate (SLP) dataset, which contains 16,000 ship images, each of which
                 contains at least one SLP. The establishment of the dataset is to support natural scene text recognition
                 tasks, such as text detection, text recognition, and end-to-end text recognition. The establishment of
                 the dataset faces many challenges, such as the diversity of image backgrounds, seasonality, lighting
                 conditions, character diversity, layout, and ship diversity. To address these challenges, we propose
                 some annotation rules and pairing selection methods to ensure the high quality and diversity of the
-                dataset.
+                dataset. -->
+                We present a novel dataset, known as the Ship License Plate (SLP) dataset, comprising 16,000 ship images, each featuring at least one SLP. This dataset aims to facilitate natural scene text recognition tasks, including text detection, recognition, and end-to-end text recognition. Establishing this dataset was not without its challenges, such as the varied backgrounds, seasonal and lighting conditions, diverse character sets, layout, and ships. To overcome these obstacles, we implemented strict annotation guidelines and employed selective pairing methods to guarantee a dataset of exceptional quality and diversity.
             </span>
             <span class="title_content">
-                The dataset contains annotation information such as the location, category, and transcription of SLP
+                <!-- The dataset contains annotation information such as the location, category, and transcription of SLP
                 instances. Our paper details the annotation methods, including the use of irregular quadrilaterals to
                 represent the location of SLP instances, the classification of SLP instances into seven categories, and
-                the use of the character sequence of SLP instances as the training data for text recognition models.
+                the use of the character sequence of SLP instances as the training data for text recognition models. -->
+                The dataset features annotations that provide critical information, including the location, category, and transcription of each SLP instance. Our paper outlines the rigorous annotation process, which employed irregular quadrilaterals to denote the location of each SLP instance, seven distinct categories for SLP classification, and the character sequence of each SLP instance as training data for text recognition models.
             </span>
             <span class="title_content">
-                To further support natural scene text recognition tasks, our paper describes in detail how to select
+                <!-- To further support natural scene text recognition tasks, our paper describes in detail how to select
                 paired text instances. Based on the different types of text degradation in terms of clarity and spatial
                 structure, we construct three different types of LQ-HQ text instances, namely Clarity pairs, Spatial
-                structure pairs, and Mixed degeneration pairs.
+                structure pairs, and Mixed degeneration pairs. -->
+                In addition, our paper provides a comprehensive guide on selecting appropriate paired text instances to further enhance natural scene text recognition tasks. We construct three types of LQ-HQ text instances based on different text degradation types, including Clarity pairs, Spatial structure pairs, and Mixed degeneration pairs. Moreover, the dataset undergoes multi-level statistical analysis, including image-level, SLP instance-level, and pairing-level analysis. The resulting statistical data indicate that the dataset boasts exceptional diversity and representativeness, making it highly suitable for exploring natural scene text recognition tasks.
             </span>
-            <span class="title_content">
+            <!-- <span class="title_content">
                 Finally, the dataset undergoes multi-level statistical analysis, including image-level, SLP
                 instance-level, and pairing-level analysis. These statistical data indicate that the dataset has good
                 diversity and representativeness and is suitable for studying natural scene text recognition tasks.
-            </span>
+            </span> -->
             <span class="title_content">
-                In conclusion, this dataset provides a challenging and diverse benchmark for natural scene text
+                <!-- In conclusion, this dataset provides a challenging and diverse benchmark for natural scene text
                 recognition tasks, which can be used to develop and evaluate the performance of natural scene text
-                recognition algorithms.
+                recognition algorithms. -->
+                In summary, this dataset serves as a challenging and diverse benchmark for natural scene text recognition tasks, which can aid in the development and evaluation of natural scene text recognition algorithms.
             </span>
         </div>
         <div class="formulation">
             <span class="title">Introduction</span>
             <span class="title_content">
-                In this paper, we discuss the challenges and importance of recognizing low-quality text in natural
-                scenes, and propose a method of capturing Chinese ship license plates to obtain low-quality and
-                high-quality text pairs. Low-quality text in natural scenes includes two forms of degradation:
-                degradation in visual clarity and degradation in spatial structure. These degradation forms are
-                difficult for current text recognition methods to handle. By capturing Chinese ship license plates, we
-                successfully obtained low-quality and high-quality license plate pairs, which are typically affected by
-                various factors in natural scenes such as weather and lighting, making them an ideal data source for
-                researching low-quality text recognition in natural scenes.
+                This paper highlights the challenges and significance of recognizing low-quality text in natural scenes and proposes a method for capturing Chinese ship license plates to obtain low-quality and high-quality text pairs. The low-quality text in natural scenes is subject to two types of degradation: visual clarity and spatial structure degradation. These forms of degradation are particularly challenging for current text recognition techniques to address. Through the capture of Chinese ship license plates, we successfully obtained pairs of low-quality and high-quality license plates that are typically affected by various natural scene factors, such as weather and lighting. This makes them an excellent source of data for researching low-quality text recognition in natural scenes.
             </span>
             <span class="title_content">
-                We created a benchmark dataset for recognizing low-quality text in natural scenes using these data. The
-                dataset includes various forms of low-quality and high-quality license plate pairs, such as low-high
-                pairs in visual clarity, low-high pairs in spatial structure, and mixed degradation low-high pairs. In
-                addition, we propose a method of model training using MAE pre-training and permutation language models.
-                This method achieved state-of-the-art recognition results on our dataset. These experimental results
-                show that our method is highly effective for recognizing low-quality text in natural scenes.
+                We have developed a benchmark dataset for recognizing low-quality text in natural scenes based on the data obtained from capturing Chinese ship license plates. This dataset encompasses various forms of low-quality and high-quality license plate pairs, including pairs with low-high visual clarity, low-high spatial structure, and mixed degradation low-high pairs. Furthermore, we propose a novel method for model training that employs MAE pre-training and permutation language models. Our approach yielded state-of-the-art recognition outcomes on the benchmark dataset, demonstrating its efficacy in recognizing low-quality text in natural scenes.
 
             </span>
             <span class="title_content">
-                Furthermore, we discuss the difficulties in obtaining low-quality and high-quality text pairs. In
-                natural scenes, obtaining these text pairs is challenging because such text typically does not appear
-                together in one scene. However, by capturing Chinese ship license plates, we successfully obtained
-                low-quality and high-quality license plate pairs. These license plates are typically affected by various
-                factors in natural scenes such as weather and lighting, making them an ideal data source for researching
-                low-quality text recognition in natural scenes.
+                In addition, we acknowledge the difficulties in obtaining pairs of low-quality and high-quality text in natural scenes. Such text pairs are typically not found together in a single scene, making their collection challenging. Nevertheless, we were able to overcome this obstacle by capturing Chinese ship license plates, which provided us with pairs of low-quality and high-quality license plates. These license plates are susceptible to various natural scene factors, including weather and lighting, making them an optimal data source for exploring low-quality text recognition in natural scenes.
             </span>
             <span class="title_content">
 
-                Finally, we describe the process of constructing the benchmark dataset for recognizing low-quality text
-                in natural scenes, including the composition of the dataset, labeling methods, and statistical analysis.
-                The dataset contains various forms of low-quality and high-quality license plate pairs and has undergone
-                multi-level statistical analysis, making it highly diverse and representative, suitable for researching
-                the task of recognizing low-quality text in natural scenes.
-
+                Lastly, we outline the process of constructing our benchmark dataset for recognizing low-quality text in natural scenes, which includes details on its composition, labeling methods, and statistical analysis. Our dataset includes a diverse range of low-quality and high-quality license plate pairs, and has undergone multi-level statistical analysis to ensure its representativeness. As a result, this dataset is highly suitable for research on recognizing low-quality text in natural scenes.
 
             </span>
             <span class="title_content">
-                Our method and dataset provide a challenging and diverse benchmark for the task of recognizing
-                low-quality text in natural scenes. This benchmark is important for developing and evaluating algorithms
-                for recognizing low-quality text in natural scenes. We believe that this work will provide valuable
-                reference and guidance for future research.
+                The approach and dataset we have developed provide a rigorous and varied benchmark for recognizing low-quality text in natural scenes. This benchmark is essential for the development and evaluation of algorithms for recognizing low-quality text in natural scenes. We are confident that our work will offer valuable insights and guidance for future research in this field.
             </span>
-            <!-- <img src="imgs/examples_new.png" alt="" class="group_img">
-            <span class="title_content">
-                An untrimmed video is considered to be partially relevant w.r.t. a given textual
-                query as long as the video contains a (short) moment relevant w.r.t.
-                the query, see the figure above. Two textual queries partially relevant to a given video. Only a specific moment in the video is relevant to the
-                corresponding query, while the other frames are irrelevant.
-            </span> -->
+           
         </div>
         <div class="method">
             <span class="title">Data Overview</span>
@@ -439,6 +434,8 @@
         <div class="method">
             <span class="title">Perview</span>
             <span class="title_content">
+                <!-- This paper captured the images used in our work in Hangzhou City, Zhejiang Province, China. We aimed to ensure diversity in image backgrounds and to cover a wide range of imaging environments, including extreme situations. We captured images from eight different locations of three different rivers: the Beijing-Hangzhou Grand Canal, the Qiantang River, and the Hangzhou-Ningbo Canal, with different viewpoints. We used the Hikvision iDS-2CD9371-KS seven-megapixel intelligent traffic network camera at each site to capture images of ships. We sampled images randomly from the eight locations. -->
+
                 Hangzhou, the southern terminus of the Beijing-Hangzhou Grand Canal, has a well-developed waterway
                 transportation system with numerous ships passing through day and night. All the images utilized in this
                 work were acquired in Hangzhou City, Zhejiang Province, China to ensure diversity in image backgrounds.
@@ -926,64 +923,77 @@
         </div>
 
         <div class="contact">
-           
+
             <span class="title">Contributors and Contact Information of the Dataset</span>
 
             <!-- <div id="result_md"></div>
              -->
 
-             <span class="title_content">
-                Below are the creators and maintainers of our dataset. Please feel free to contact us for more information:
-            </span>
-             <span class="title_content">
-                <li>Creator: <b><em>School of Computer and Information Engineering, Zhejiang Gongshang University</em></li></b>
-                <li>Maintainer: <b><em>School of Computer and Information Engineering, Zhejiang Gongshang University</em></li></b>
-            </span>
-           
-          
-          
             <span class="title_content">
-               We welcome your feedback and opinions and will reply to you as soon as possible. If you encounter common problems with the dataset, please refer to the following questions and answers:
+                Below are the creators and maintainers of our dataset. Please feel free to contact us for more
+                information:
             </span>
             <span class="title_content">
-               Question 1: What is the size and dimension of the dataset?
+                <li>Creator: <b><em>School of Computer and Information Engineering, Zhejiang Gongshang University</em>
+                </li></b>
+                <li>Maintainer: <b><em>School of Computer and Information Engineering, Zhejiang Gongshang
+                            University</em></li></b>
             </span>
-            <span class="title_content">
-                <span style="padding-left: 40px;">Answer: The dataset contains 16000 samples, each with at least one attribute</span>
-            </span>
-            <span class="title_content">
-               Question 2: What is the authorization and license of the dataset?
-            </span>
-            <span class="title_content">
-                <span style="padding-left: 40px;">Answer: The authorization and license of the dataset is CDLA-Sharing-1.0. Please see our authorization and license page for more information.</span>
-            </span>
-            <span class="title_content">
-               Question 3: What are the download and access methods of the dataset?
-            </span>
-            <span class="title_content">
-                <span style="padding-left: 40px;">Answer: You can download and access the dataset through the following methods:</span>
-                <span class="title_content" style="padding-left: 100px;"> Method 1: Visit our dataset page and click the download button.</span>
-                 <span class="title_content" style="padding-left: 100px;"> Method 2: Contact our data science team and request access to the dataset</span>
-            </span>
-            
 
-             <span class="title_content">
-               Question 4: What are the usage examples and application scenarios of the dataset?
+
+
+            <span class="title_content">
+                We welcome your feedback and opinions and will reply to you as soon as possible. If you encounter common
+                problems with the dataset, please refer to the following questions and answers:
             </span>
             <span class="title_content">
-                <span style="padding-left: 40px;">Answer: The dataset can be used in the following application scenarios:</span>
+                Question 1: What is the size and dimension of the dataset?
+            </span>
+            <span class="title_content">
+                <span style="padding-left: 40px;">Answer: The dataset contains 16000 samples, each with at least one
+                    attribute</span>
+            </span>
+            <span class="title_content">
+                Question 2: What is the authorization and license of the dataset?
+            </span>
+            <span class="title_content">
+                <span style="padding-left: 40px;">Answer: The authorization and license of the dataset is
+                    CDLA-Sharing-1.0. Please see our authorization and license page for more information.</span>
+            </span>
+            <span class="title_content">
+                Question 3: What are the download and access methods of the dataset?
+            </span>
+            <span class="title_content">
+                <span style="padding-left: 40px;">Answer: You can download and access the dataset through the following
+                    methods:</span>
+                <span class="title_content" style="padding-left: 100px;"> Method 1: Visit our dataset page and click the
+                    download button.</span>
+                <span class="title_content" style="padding-left: 100px;"> Method 2: Contact our data science team and
+                    request access to the dataset</span>
+            </span>
+
+
+            <span class="title_content">
+                Question 4: What are the usage examples and application scenarios of the dataset?
+            </span>
+            <span class="title_content">
+                <span style="padding-left: 40px;">Answer: The dataset can be used in the following application
+                    scenarios:</span>
                 <span class="title_content" style="padding-left: 100px;"> Scenario 1: Scientific research</span>
-                 <span class="title_content" style="padding-left: 100px;"> Scenario 2: Verify OCR model performance</span>
+                <span class="title_content" style="padding-left: 100px;"> Scenario 2: Verify OCR model
+                    performance</span>
             </span>
 
-             <span class="title_content">
-               Question 5: What are the limitations and warnings of the dataset?
+            <span class="title_content">
+                Question 5: What are the limitations and warnings of the dataset?
             </span>
             <span class="title_content">
-                <span style="padding-left: 40px;">Answer: The limitations and warnings of the dataset is commercial use. Please see our dataset limitations and warnings page for more information.</span>
+                <span style="padding-left: 40px;">Answer: The limitations and warnings of the dataset is commercial use.
+                    Please see our dataset limitations and warnings page for more information.</span>
             </span>
             <span class="title_content">
-               If you have any questions or suggestions regarding the dataset, please email us at the following address:
+                If you have any questions or suggestions regarding the dataset, please email us at the following
+                address:
             </span>
             <ul>
                 <li>Baolong Liu: <b><em>liubaolongx@gmail.com</em></li></b>
@@ -1131,8 +1141,36 @@
     // document.getElementById("result_md").innerHTML = html;
     // console.log("aaaaaaa")
     // }
-    
 
+    // const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+
+    // const alert = (message, type) => {
+    //     const wrapper = document.createElement('div')
+    //     wrapper.innerHTML = [
+    //         `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    //         `   <div>${message}</div>`,
+    //         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    //         '</div>'
+    //     ].join('')
+
+    //     alertPlaceholder.append(wrapper)
+    // }
+
+    // const alertTrigger = document.getElementById('liveAlertBtn')
+    // if (alertTrigger) {
+    //     alertTrigger.addEventListener('click', () => {
+    //         alert('Nice, you triggered this alert message!', 'success')
+    //     })
+    // }
+    var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+        keyboard: false
+    })
+
+    var confirmBtn = document.querySelector('#myModal .modal-footer .btn-primary')
+    confirmBtn.addEventListener('click', function () {
+        // 执行相应的操作
+        myModal.hide()
+    })
 
     var myImage = document.getElementById("mypoly");
 
