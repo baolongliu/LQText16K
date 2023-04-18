@@ -3,4 +3,4 @@
 uri: https://baolongliu.github.io/LQText16K/
 
 
-When the paper is accepted, our dataset will be made public.
+The dataset will be made public along with the paper.
