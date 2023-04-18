@@ -342,7 +342,7 @@
             <div id="abs"></div>
             <!-- <pre>todo</pre> -->
 
-<!--         </div>
+        </div>
         <div class="abstract">
             <span class="title">Abstract</span>
             <span class="title_content">
@@ -380,14 +380,14 @@
                 recognition algorithms. -->
                 In summary, this dataset serves as a challenging and diverse benchmark for natural scene text recognition tasks, which can aid in the development and evaluation of natural scene text recognition algorithms.
             </span>
-        </div> -->
+        </div>
         <div class="formulation">
             <span class="title">Introduction</span>
             <span class="title_content">
                 This paper highlights the challenges and significance of recognizing low-quality text in natural scenes and proposes a method for capturing Chinese ship license plates to obtain low-quality and high-quality text pairs. The low-quality text in natural scenes is subject to two types of degradation: visual clarity and spatial structure degradation. These forms of degradation are particularly challenging for current text recognition techniques to address. Through the capture of Chinese ship license plates, we successfully obtained pairs of low-quality and high-quality license plates that are typically affected by various natural scene factors, such as weather and lighting. This makes them an excellent source of data for researching low-quality text recognition in natural scenes.
             </span>
             <span class="title_content">
-                We have developed a benchmark dataset for recognizing low-quality text in natural scenes based on the data obtained from capturing Chinese ship license plates. This dataset encompasses various forms of low-quality and high-quality license plate pairs, including pairs with low-high visual clarity, low-high spatial structure, and mixed degradation low-high pairs. Furthermore, we propose a novel method for model training that employs MAE pre-training and permutation language models. Our approach yielded state-of-the-art recognition outcomes on the benchmark dataset, demonstrating its efficacy in recognizing low-quality text in natural scenes.
+                We have developed a benchmark dataset for recognizing low-quality text in natural scenes based on the data obtained from capturing Chinese ship license plates. This dataset encompasses various forms of low-quality and high-quality license plate pairs, including pairs with low-high visual clarity, low-high spatial structure, and mixed degradation low-high pairs. Furthermore, we propose a novel method for model training that employs MAE pre-training and permutation language models. Our approach yields state-of-the-art recognition outcomes on the benchmark dataset, demonstrating its efficacy in recognizing low-quality text in natural scenes.
 
             </span>
             <span class="title_content">
@@ -432,7 +432,7 @@
         </div>
 
         <div class="method">
-            <span class="title">Perview</span>
+            <span class="title">Data acquisition</span>
             <span class="title_content">
                 <!-- This paper captured the images used in our work in Hangzhou City, Zhejiang Province, China. We aimed to ensure diversity in image backgrounds and to cover a wide range of imaging environments, including extreme situations. We captured images from eight different locations of three different rivers: the Beijing-Hangzhou Grand Canal, the Qiantang River, and the Hangzhou-Ningbo Canal, with different viewpoints. We used the Hikvision iDS-2CD9371-KS seven-megapixel intelligent traffic network camera at each site to capture images of ships. We sampled images randomly from the eight locations. -->
 
@@ -445,8 +445,8 @@
                 cover a wide range of imaging environments, especially in extreme situations, the time span of image
                 capturing lasted four years. The Hikvision iDS-2CD9371-KS seven-megapixel intelligent traffic network
                 camera was used at each site to capture images of ships.
-                We randomly sampled an image from 8 locations, and the equipment used for the capture was the Hikvision
-                iDS-2CD9371-KS seven megapixel intelligent traffic network camera.
+<!--                 We randomly sampled an image from 8 locations, and the equipment used for the capture was the Hikvision
+                iDS-2CD9371-KS seven megapixel intelligent traffic network camera. -->
             </span>
             <div>
                 <div id="carouselExampleIndicators_preview" class="carousel slide" style="margin: auto;">
@@ -500,10 +500,10 @@
         </div>
 
         <div class="method">
-            <span class="title">Scene Text Recognition Data Visualization</span>
+            <span class="title">Image annotation</span>
             <div class="image-wrapper">
                 <img src="imgs/annotation.png" alt="...">
-                <div class="image-title">Examples of the 7 categories and Our annotations</div>
+                <div class="image-title">Examples of the seven categories of ship license plates and their labeling rule</div>
             </div>
         </div>
         <!-- <div class="method">
@@ -538,10 +538,8 @@
             </span>
 
             <span class="title_content">
-                2) Spatial structure pairs: Another major type of degra-
-                dation for LQ text is spatial structure degradation. Therefore,
-                we have also selected different forms of spatial structure LQ-
-                HQ text pairs with a specific aim. The selection of these
+                2) Spatial structure pairs: Another major type of degradation for LQ text is spatial structure degradation. Therefore,
+                we have also selected different forms of spatial structure LQ-HQ text pairs with a specific aim. The selection of these
                 image pairs was also performed manually. In detail, we first
                 select an HQ SLP with relatively regular character distribution
                 that is easy for existing algorithms to recognize. Then, we
@@ -551,8 +549,7 @@
             </span>
             <span class="title_content">
 
-                3) Mixed degeneration pairs: Taking into account the hy-
-                brid nature of text degradation, many LQ texts in reality
+                3) Mixed degeneration pairs: Taking into account the hybrid nature of text degradation, many LQ texts in reality
                 not only suffer from degradation in terms of clarity but also
                 from degradation in terms of spatial structure. Therefore,
                 constructing text image pairs that contain various types of
@@ -562,8 +559,7 @@
                 larger scale of LQ-HQ text image pairs. The SSIM algorithm is
                 a popular method for calculating the similarity of image pairs.
                 It considers the similarity of images in terms of brightness,
-                contrast, and structure simultaneously. Based on the algorithm-
-                based confidence of image similarity, we not only expand the
+                contrast, and structure simultaneously. Based on the algorithm-based confidence of image similarity, we not only expand the
                 number of clarity-type and spatial structure-type image pairs,
                 but also obtained LQ-HQ image pairs that simultaneously
                 contain clarity and spatial structure differences
@@ -597,7 +593,7 @@
                 </div>
             </div>
         </div>
-
+<!-- 
 
         <div class="method">
             <span class="title">Paired Data Vs. TextZoom</span>
@@ -617,11 +613,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
         <div class="method">
-            <span class="title">Data Analysis</span>
+            <span class="title">Data Statistics</span>
             <div>
                 <div class="image-container">
                     <div class="image-wrapper">
@@ -657,21 +653,14 @@
 
 
         <div class="performance">
-            <span class="title">Algorithm Performance Comparision</span>
+            <span class="title">Baseline Algorithms</span>
 
             <div class="datasets">
                 <span class="title_content">
-                    For detection, When selecting benchmark
-                    algorithms, we considered multiple factors including perfor-
-                    mance, generalization, and stability. After thorough research
-                    and comparison, we selected ten benchmark algorithms, in-
-                    cluding six cutting-edge text detection algorithms, two classic
-                    text detection algorithms, and two object detection algorithms.
-                    The cutting-edge algorithms represent the best performance of
-                    current detectors, while the classic text detection and object
-                    detection algorithms serve as supplements.
+                    When selecting SLP detection
+                    algorithms, we considered multiple factors including performance, generalization, and stability. Cutting-edge text detection algorithms were estimated on our SLP dataset.
                 </span>
-                <span class="dataset">Text Detection Algorithm:</span>
+                <span class="dataset">Text Detection Baselines</span>
 
                 <table class="dataset" style="width: 500px;">
                     <tr>
@@ -749,22 +738,22 @@
                         <td>88.20</td>
                         <td>89.94</td>
                     </tr>
-                    <tr class="model_name">
+<!--                     <tr class="model_name">
                         <td colspan="5" align="left">YOLOv5+CSL </td>
                         <td> </td>
                         <td> </td>
                         <td>88.63</td>
                         <td>86.58</td>
                         <td>90.77</td>
-                    </tr>
-                    <tr class="model_name">
+                    </tr> -->
+<!--                     <tr class="model_name">
                         <td colspan="5" align="left">YOLOv8 </td>
                         <td> </td>
                         <td> </td>
                         <td>90.93</td>
                         <td>93.83</td>
                         <td>92.14</td>
-                    </tr>
+                    </tr> -->
                 </table>
             </div>
             <br>
@@ -772,7 +761,7 @@
             </br>
             <div class="datasets">
                 <span class="title_content">
-                    For recognition, we uniformly resized the images to a size of 224*224, with 3 channels for the
+<!--                     For recognition, we uniformly resized the images to a size of 224*224, with 3 channels for the
                     image. The encoder and decoder have a dimension of 768, and there are a total of 559 characters,
                     including English, Chinese, numbers, and common punctuation marks. The max label length is set to
                     50, and the overall architecture uses an encoder-decoder framework, which is divided into two stages
@@ -780,9 +769,10 @@
                     encoder. Our encoder is inspired by the mask auto-encoder, which trains the encoder in the form of
                     image restoration. In the second stage, we combined the pre-trained encoder with Permutation
                     Language Model to connect with our downstream tasks, which is competitive in terms of convergence
-                    speed and inference speed, and the accuracy reaches State-Of-The-Art in our datasets.
+                    speed and inference speed, and the accuracy reaches State-Of-The-Art in our datasets. -->
+                    State-of-the-art text recognition algorithms were evaluated on our proposed SLP dataset. We also present a new baseline SLP recognition algorithm, which obtains state-of-the-art recognition accuracy. 
                 </span>
-                <span class="dataset">Text Recognition Algorithm:</span>
+                <span class="dataset">Text Recognition Baselines</span>
                 <table class="dataset" style="width: 600px;">
                     <tr>
                         <th colspan="6" align="left">Method</th>
@@ -887,7 +877,7 @@
                         <td>63.17</td>
                     </tr>
                     <tr class="model_name split">
-                        <td colspan="6" align="left">Ours<a href="#Ours">[18]</a></td>
+                        <td colspan="6" align="left">Ours<a href="#Ours"></a></td>
                         <td>2023</td>
                         <td>-</td>
                         <td>-</td>
@@ -900,7 +890,7 @@
             </div>
         </div>
         <div class="group">
-            <span class="title">Our SOTA Algorithm Visualization</span>
+            <span class="title">Algorithm Visualization</span>
             <span class="title_content">
 
             </span>
@@ -1091,9 +1081,9 @@
                     Lu N, Yu W, Qi X, et al. Master: Multi-aspect non-local network for scene text recognition[J].
                     Pattern Recognition.2021: 117: 107980.
                 </li>
-                <li id="Ours">
+<!--                 <li id="Ours">
                     Todo
-                </li>
+                </li> -->
             </ol>
         </div>
     </div> <!-- /container -->
