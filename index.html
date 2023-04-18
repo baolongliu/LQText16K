@@ -378,31 +378,88 @@
             <span class="title_content">
                 The approach and dataset we have developed provide a rigorous and varied benchmark for recognizing low-quality text in natural scenes. This benchmark is essential for the development and evaluation of algorithms for recognizing low-quality text in natural scenes. We are confident that our work will offer valuable insights and guidance for future research in this field.
             </span>
+            <br>
+            <span class="title_content">
+                You can click the arrows in the figure below to view the sample images of our labeled data left and right.
+            </span>
+            <!-- <img id="mypoly" src="imgs/poly_raw.jpg" alt="" class="group_img"> -->
+            <div>
+                <div id="carouselExampleIndicators_annotion" class="carousel slide" style="margin: auto;">
+                    <div class="carousel-inner">
+                        
+                        <div class="carousel-item active">
+                            <img src="imgs/annotation/T_20211121_11_46_37_036915.jpg" class="d-block w-100" alt="...">
+                            <!-- <div class="image-title">Clarity pairs</div> -->
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="imgs/annotation/T_20220704_14_32_04_978625.jpg" class="d-block w-100" alt="...">
+                            <!-- <div class="image-title">Clarity pairs</div> -->
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="imgs/annotation/T_20220831_10_48_41_500000.jpg" class="d-block w-100" alt="...">
+                            <!-- <div class="image-title">Clarity pairs</div> -->
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="imgs/annotation/T_20190213_12_10_52_156250.jpg" class="d-block w-100" alt="...">
+                            <!-- <div class="image-title">Clarity pairs</div> -->
+                        </div>
+
+                    </div>
+                    <button class="carousel-control-prev" type="button"
+                        data-bs-target="#carouselExampleIndicators_annotion" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="false" style="color: black;"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                        data-bs-target="#carouselExampleIndicators_annotion" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="false" style="color: black;"></span>
+                        <span class="visually-hidden" style="color: black;">Next</span>
+                    </button>
+                </div>
+            </div>
            
         </div>
         <div class="method">
             <span class="title">Dataset Overview</span>
+            <span class="title_content">
+                <span class="title_content">As delineated in Fig. 2, we have executed image-level statistics from a plenitude of perspectives, encompassing image procurement location, season, month, and time frame.</span>
+                <span class="title_content">
+                    Fig. 2a illustrates the quantity of images amassed from eight disparate locations, revealing approximately 2,000 images per site. Owing to factors such as vessel frequency and imaging conditions, certain locations may exhibit a deviation from the 2,000-image benchmark (e.g., 2,762 images at location 5 and 1,539 images at location 6). Furthermore, to bolster the diversity of image backdrops, each location was photographed from a minimum of two distinct camera angles. Consequently, the comprehensive dataset comprises images from 21 unique vantage points across eight locations, guaranteeing a heterogeneous background for the proposed dataset.
+                </span>
+                <span class="title_content">
+                    Per Fig. 2b, the proportional distribution of images accrued across seasons is as follows: spring 24.07%, summer 24.73%, autumn 26.07%, and winter 25.12%. These figures evince a relatively equitable seasonal allocation within the dataset.
+                </span>
+                <span class="title_content">
+                    Fig. 2c delves into the number of images procured across years and months, revealing a collection period spanning five years, from July 2018 to November 2022. This denotes an ample duration for image acquisition.
+                </span>
+                <span class="title_content">Contrary to most extant datasets, which primarily encompass text instances gathered during daylight hours, Fig. 2d attests that 27.84% of the images within this dataset were obtained during nocturnal conditions, rendering it a valuable resource for examining text recognition in low-light settings. </span>
+                <span class="title_content">
+                    Through this image-level statistical analysis, the proposed dataset exhibits commendable diversity and representativeness regarding image backgrounds, seasonality, weather, months, and lighting conditions. This substantiates its aptitude for investigating natural scene text recognition tasks.
+                </span>
+                         
+                        
+            </span>
             <div>
                 <div class="image-container">
                     <div class="image-wrapper">
                         <img src="imgs/number_per_pos.png" alt="Image 1">
-                        <div class="image-title"> Number of images in different locations</div>
+                        <div class="image-title"> Fig. 2a Number of images in different locations</div>
                     </div>
                     <div class="image-wrapper">
                         <img src="imgs/number_per_season.png" alt="Image 2">
-                        <div class="image-title">Number of images in different seasons</div>
+                        <div class="image-title"> Fig. 2b Number of images in different seasons</div>
                     </div>
 
                 </div>
                 <div class="image-container">
                     <div class="image-wrapper">
                         <img src="imgs/heatmap_diff_year_month.jpg" alt="Image 3">
-                        <div class="image-title">Distribution of the number of images in different years and months
+                        <div class="image-title">Fig. 2c Distribution of the number of images in different years and months
                         </div>
                     </div>
                     <div class="image-wrapper">
                         <img src="imgs/day_or_night.png" alt="Image 4">
-                        <div class="image-title">Number of images during day and night</div>
+                        <div class="image-title">Fig. 2d Number of images during day and night</div>
                     </div>
                 </div>
             </div>
@@ -424,6 +481,10 @@
                 camera was used at each site to capture images of ships.
 <!--                 We randomly sampled an image from 8 locations, and the equipment used for the capture was the Hikvision
                 iDS-2CD9371-KS seven megapixel intelligent traffic network camera. -->
+            </span>
+            <br>
+            <span class="title_content">
+                You can click the arrows in the figure below to view the sample images of our collected  data left and right.
             </span>
             <div>
                 <div id="carouselExampleIndicators_preview" class="carousel slide" style="margin: auto;">
@@ -478,9 +539,39 @@
 
         <div class="method">
             <span class="title">Image Annotation</span>
+            <span class="title_content">
+                        Considering the aforementioned factors, we distill our primary annotation guidelines as follows:
+            <span class="title_content">
+                1) Semantic consistency rule: Despite potentially disordered visual character arrangements in SLPs, the ground truth reading order should adhere to the corresponding official laws or regulations. Any deviation may yield illegitimate and nonsensical SLPs. Thus, regardless of on-site visual arrangements, as exhibited in Fig. 3b, Fig. 3c, and Fig. 3e, we transcribe characters by honoring their semantic ground truth.
+            <span class="title_content">
+                2) Associative compensation rule: Many SLPs appear incomplete due to complex imaging environments, obscurity, vagueness, or corrosion. Nonetheless, SLPs often possess ample semantic clues. Furthermore, a ship may display multiple SLPs with identical meanings, some incomplete while others are clear and complete. Consequently, humans can infer missing characters by leveraging semantic clues or complete SLPs. We expect algorithms, machines, or architectures to surmise missing information by learning from other semantic cues.
+            </span>
+            <span class="title_content">
+                3) Port category: As port information is a crucial identification aspect, we designate the port name as a separate class. Often printed vertically, as in Fig. 3d, we apply the semantic consistency rule to transcribe Chinese characters and their subsequent Pinyin.
+            </span>
+            <span class="title_content">
+                4) Reverse order: Some SLPs are printed in reverse order, deviating from conventional reading habits. For these instances, we categorize them separately and transcribe them based on the semantic consistency rule.
+            </span>
+            <span class="title_content">
+                 5) Separated SLP: Certain SLPs are written as multiple sub-parts with considerable distances between them. As illustrated in Fig. 3e, we classify these SLPs as a distinct category and transcribe them as a single, complete SLP using the semantic consistency rule.
+            </span>
+            <span class="title_content">
+                6) Visibility category: For incomplete SLPs, as demonstrated in Fig. 3g, we classify them based on visibility, i.e., the percentage of illegible characters within the SLP. If the associative compensation rule enables us to compensate for illegible characters, we do so; otherwise, we categorize the SLP as unreadable and leave it untranscribed.
+            </span>
+            
+            <span class="title_content">
+                To ensure exceptional annotation quality, we enlisted 26 graduate students and 2 teachers with expertise in artificial intelligence. Possessing robust backgrounds in object detection, text recognition, and computer vision, these individuals underwent comprehensive training prior to official commencement. Teachers functioned as inspectors to guarantee the quality of annotations. The entire annotation process spanned approximately six months.
+            </span>
+            
+           
+            
+            
+
+
+            </span>
             <div class="image-wrapper">
                 <img src="imgs/annotation.png" alt="...">
-                <div class="image-title">Examples of the seven categories of ship license plates and their labeling rule</div>
+                <div class="image-title"> Fig. 3 Examples of the seven categories of ship license plates and their labeling rule</div>
             </div>
         </div>
         <!-- <div class="method">
@@ -541,6 +632,10 @@
                 but also obtained LQ-HQ image pairs that simultaneously
                 contain clarity and spatial structure differences
             </span>
+            <br>
+            <span class="title_content">
+                You can click the arrows in the figure below to view the sample images of our  paired  data left and right.
+            </span>
             <div>
                 <div id="carouselExampleIndicators" class="carousel slide" style="margin: auto;">
                     <div class="carousel-inner">
@@ -595,34 +690,86 @@
 
         <div class="method">
             <span class="title">Dataset Statistics</span>
+            <!-- <span class="title_content">
+                        The SLP instance-level statis-
+        tical analyses are also conducted in Fig. 4. We divided the
+        collected into five categories based on their character spatial
+        distribution patterns, namely single line, two lines, multiple
+        lines, segmented, and vertical. The number of SLPs in each
+        category is shown in Fig. 4d. Fig. 4d shows that the two-line
+        SLPs are the most and the segmented SLPs are the fewest, but
+        there are at least 2,000 instances of each type of SLP in the
+        dataset overall. Regarding the scale of SLP, we respectively
+        conducted statistical analysis on SLP width and height. From
+        Fig. 4a, it can be seen that the majority of SLPs have widths
+        below 400 pixels, with the percentage of widths less than 100
+        pixels being largest. However, there are also some SLPs with
+        widths greater than 400 pixels. In terms of height, the majorit 
+        of SLPs have heights between 30 and 150 pixels, while there
+        are also some SLPs with very large height values (greater
+        than 150) or very small height values (less than 30). It can be
+        observed that the distribution of scales of SLP text instances
+        has good diversity, indicating that the dataset is a challenging
+        text recognition dataset containing various aspect ratios of
+        instances. However, the large scale diversity also corresponds
+        to the distribution of text scales in real-world environments.
+        We also conducted some statistical analysis on the characters
+        included in SLPs. Fig. 4c displays the statistical distribution
+        of the number of characters contained in different SLPs. It
+        can be observed that the number of characters contained in
+        SLPs ranges from 2 to 40, and the number of SLPs containing
+        8 characters is the highest. Fig. 4e summarizes the top 50
+        characters contained in SLPs, showing that SLPs contain not
+        only Chinese characters but also English and digits, indicating
+        a rich character diversity of the proposed dataset. Fig. 4f shows
+        a statistical graph of the ports to which the ships in this dataset
+        belong. It can be seen that the ships in this dataset came from
+        multiple ports in different cities and provinces in China, with
+        over 100 ships belonging to 10 of these ports. Based on the
+        statistics in Fig. 4, it can be seen that the proposed dataset
+        is very challenging and diverse at the instance level, with a
+        wide range of instance scales, types, and character lengths and
+        types
+            </span> -->
+
+            <span class="title_content">
+            The proffered dataset presents a formidable and multifarious collection, encompassing an extensive assortment of instance scales, classifications, and character dimensions and varieties. SLP instances are apportioned into quintuple categories predicated upon their character spatial dissemination patterns. A preponderance of SLPs possess widths beneath 400 pixels, whilst the majority exhibit heights between 30 and 150 pixels. SLPs' character count extends from 2 to 40, and the uppermost 50 characters within SLPs incorporate not solely Chinese characters but English and numerals as well. Vessels in this dataset originate from numerous ports spanning diverse cities and provinces throughout China
+            </span>
+            
             <div>
                 <div class="image-container">
                     <div class="image-wrapper">
                         <img src="imgs/width.png" alt="Image 1">
+                        <div class="image-title">(a)</div>
                     </div>
                     <div class="image-wrapper">
                         <img src="imgs/height.png" alt="Image 1">
+                        <div class="image-title">(b)</div>
                     </div>
 
                 </div>
                 <div class="image-container">
                     <div class="image-wrapper">
                         <img src="imgs/char_len.png" alt="Image 2">
+                        <div class="image-title">(c)</div>
                     </div>
                     <div class="image-wrapper">
                         <img src="imgs/type_count.png" alt="Image 2">
+                        <div class="image-title">(d)</div>
                     </div>
                 </div>
                 <div class="image-container">
                     <div class="image-wrapper">
                         <img src="imgs/char_top50.png" alt="Image 2">
                         <div class="image-title">top 50 characters in instance</div>
+                        <div class="image-title">(e)</div>
                     </div>
                 </div>
                 <div class="image-container">
                     <div class="image-wrapper">
                         <img src="imgs/number_of_ship_per_port.png" alt="Image 2">
                         <div class="image-title">number of ship per port</div>
+                        <div class="image-title">(f)</div>
                     </div>
                 </div>
             </div>
@@ -866,7 +1013,7 @@
                 </table>
             </div>
         </div>
-        <div class="group">
+        <!-- <div class="group">
             <span class="title">Algorithm Visualization</span>
             <span class="title_content">
 
@@ -875,7 +1022,7 @@
             <span class="title_content">
 
             </span>
-        </div>
+        </div> -->
         <div class="acknowledgement">
             <span class="title">Acknowledgement</span>
             <span class="title_content">
