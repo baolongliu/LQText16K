@@ -278,14 +278,21 @@
         <div class="header">
             <h3 class="title">Going Deeper into Low-quality Text Recognition in
                 the Wild: A New Benchmark Dataset</h3>
-            <p class="authors">Baolong Liu<sup>1</sup> &nbsp;&nbsp;&nbsp;&nbsp;
-                Ruiqing Yang<sup>2</sup> &nbsp;&nbsp;&nbsp;&nbsp;
-                Wenhao Xu<sup>3</sup> &nbsp;&nbsp;&nbsp;&nbsp;
-                Roukai Huang<sup>4</sup> &nbsp;&nbsp;&nbsp;&nbsp;
-                Jianfeng Dong<sup>5</sup> &nbsp;&nbsp;&nbsp;&nbsp;
-                Xun Wang<sup>6</sup>
-            </p>
-            <p class="affi">¹School of Computer Science and Technology, Zhejiang Gongshang University</p>
+                <p class="authors">Baolong Liu &nbsp;&nbsp;&nbsp;&nbsp;
+                Ruiqing Yang &nbsp;&nbsp;&nbsp;&nbsp;
+                Wenhao Xu &nbsp;&nbsp;&nbsp;&nbsp;
+                Roukai Huang &nbsp;&nbsp;&nbsp;&nbsp;
+                Jianfeng Dong &nbsp;&nbsp;&nbsp;&nbsp;
+                Xun Wang
+                </p>
+<!--             <p class="authors">Baolong Liu<sup>1</sup> &nbsp;&nbsp;&nbsp;&nbsp;
+                Ruiqing Yang<sup>1</sup> &nbsp;&nbsp;&nbsp;&nbsp;
+                Wenhao Xu<sup>1</sup> &nbsp;&nbsp;&nbsp;&nbsp;
+                Roukai Huang<sup>1</sup> &nbsp;&nbsp;&nbsp;&nbsp;
+                Jianfeng Dong<sup>1</sup> &nbsp;&nbsp;&nbsp;&nbsp;
+                Xun Wang<sup>1</sup>
+            </p> -->
+<!--             <p class="affi">¹School of Computer Science and Technology, Zhejiang Gongshang University</p> -->
             <!-- <p class="affi">²School of Information Science and Technology, University of Science and Technology of China</p> -->
             <!-- <p class="affi">³Key Lab of Data Engineering and Knowledge Engineering, Renmin University of China</p> -->
         </div>
@@ -298,7 +305,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div> -->
                         <div class="modal-body">
-                            Sorry,When the paper is accepted, our dataset will be made public.
+                            The dataset will be made public along with the paper.
                         </div>
                         <!-- <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
@@ -380,7 +387,7 @@
             </span>
             <br>
             <span class="title_content">
-                Kindly peruse the arrows situated beneath the illustration to navigate the exemplary images of our annotated data, traversing both left and right.
+                You can click the arrows in the figure to view the sample images of the labelled images left and right.
             </span>
             <!-- <img id="mypoly" src="imgs/poly_raw.jpg" alt="" class="group_img"> -->
             <div>
@@ -422,8 +429,10 @@
         <div class="method">
             <span class="title">Dataset Overview</span>
             <span class="title_content">
-                <span class="title_content">As delineated in Fig. 2, we have executed image-level statistics from a plenitude of perspectives, encompassing image procurement location, season, month, and time frame.</span>
-                <span class="title_content">
+                <span class="title_content">When detecting and recognizing texts in different images, the main challenges can be summarized into two aspects: the complexities of the texts themselves (e.g., arbitrary character distributions, changeable plate positions, low resolutions and the character differences in backgrounds, color, size, typeface, language and quantity) and the variability of the external environments in which the texts appeared (e.g., different locations, different seasons, different illuminations). A good texts detection or recognition model should be able to cope with almost all the above challenges at the same time. </span>
+                <span class="title_content"> Fig. 2(a) depicts the number of images collected from 8 different locations, from which one can see that the number of images of each location are about 2,000. The percentage of images collected from different seasons is as follows: spring 24.07%, summer 24.73%, autumn 26.07%, and winter 25.12%. These data suggest that the dataset proposed in this paper contains images with a relatively even distribution across seasons. The dataset in this paper contains 27.84% of images collected under night-time conditions, which makes it a useful dataset for studying text recognition in low-light environments. The images were collected over a period of five years, from July 2018 to November 2022, indicating that the dataset has a sufficient duration of image collection. </span>
+                
+                <!--                 <span class="title_content">
                     Fig. 2a illustrates the quantity of images amassed from eight disparate locations, revealing approximately 2,000 images per site. Owing to factors such as vessel frequency and imaging conditions, certain locations may exhibit a deviation from the 2,000-image benchmark (e.g., 2,762 images at location 5 and 1,539 images at location 6). Furthermore, to bolster the diversity of image backdrops, each location was photographed from a minimum of two distinct camera angles. Consequently, the comprehensive dataset comprises images from 21 unique vantage points across eight locations, guaranteeing a heterogeneous background for the proposed dataset.
                 </span>
                 <span class="title_content">
@@ -435,7 +444,7 @@
                 <span class="title_content">Contrary to most extant datasets, which primarily encompass text instances gathered during daylight hours, Fig. 2d attests that 27.84% of the images within this dataset were obtained during nocturnal conditions, rendering it a valuable resource for examining text recognition in low-light settings. </span>
                 <span class="title_content">
                     Through this image-level statistical analysis, the proposed dataset exhibits commendable diversity and representativeness regarding image backgrounds, seasonality, weather, months, and lighting conditions. This substantiates its aptitude for investigating natural scene text recognition tasks.
-                </span>
+                </span> -->
                          
                         
             </span>
@@ -591,7 +600,7 @@
 
         </div> -->
         <div class="method">
-            <span class="title">Paired Data Visualization</span>
+            <span class="title">Paired-instances Visualization</span>
             <span class="title_content">
                 1) Clarity pairs: In order to enable the algorithm to restore
                 the clarity and recognition of the LQ text, we manually
@@ -690,50 +699,9 @@
 
         <div class="method">
             <span class="title">Dataset Statistics</span>
-            <!-- <span class="title_content">
-                        The SLP instance-level statis-
-        tical analyses are also conducted in Fig. 4. We divided the
-        collected into five categories based on their character spatial
-        distribution patterns, namely single line, two lines, multiple
-        lines, segmented, and vertical. The number of SLPs in each
-        category is shown in Fig. 4d. Fig. 4d shows that the two-line
-        SLPs are the most and the segmented SLPs are the fewest, but
-        there are at least 2,000 instances of each type of SLP in the
-        dataset overall. Regarding the scale of SLP, we respectively
-        conducted statistical analysis on SLP width and height. From
-        Fig. 4a, it can be seen that the majority of SLPs have widths
-        below 400 pixels, with the percentage of widths less than 100
-        pixels being largest. However, there are also some SLPs with
-        widths greater than 400 pixels. In terms of height, the majorit 
-        of SLPs have heights between 30 and 150 pixels, while there
-        are also some SLPs with very large height values (greater
-        than 150) or very small height values (less than 30). It can be
-        observed that the distribution of scales of SLP text instances
-        has good diversity, indicating that the dataset is a challenging
-        text recognition dataset containing various aspect ratios of
-        instances. However, the large scale diversity also corresponds
-        to the distribution of text scales in real-world environments.
-        We also conducted some statistical analysis on the characters
-        included in SLPs. Fig. 4c displays the statistical distribution
-        of the number of characters contained in different SLPs. It
-        can be observed that the number of characters contained in
-        SLPs ranges from 2 to 40, and the number of SLPs containing
-        8 characters is the highest. Fig. 4e summarizes the top 50
-        characters contained in SLPs, showing that SLPs contain not
-        only Chinese characters but also English and digits, indicating
-        a rich character diversity of the proposed dataset. Fig. 4f shows
-        a statistical graph of the ports to which the ships in this dataset
-        belong. It can be seen that the ships in this dataset came from
-        multiple ports in different cities and provinces in China, with
-        over 100 ships belonging to 10 of these ports. Based on the
-        statistics in Fig. 4, it can be seen that the proposed dataset
-        is very challenging and diverse at the instance level, with a
-        wide range of instance scales, types, and character lengths and
-        types
-            </span> -->
 
             <span class="title_content">
-            The proffered dataset presents a formidable and multifarious collection, encompassing an extensive assortment of instance scales, classifications, and character dimensions and varieties. SLP instances are apportioned into quintuple categories predicated upon their character spatial dissemination patterns. A preponderance of SLPs possess widths beneath 400 pixels, whilst the majority exhibit heights between 30 and 150 pixels. SLPs' character count extends from 2 to 40, and the uppermost 50 characters within SLPs incorporate not solely Chinese characters but English and numerals as well. Vessels in this dataset originate from numerous ports spanning diverse cities and provinces throughout China
+            SLP instances are apportioned into five categories predicated upon their character spatial dissemination patterns. A preponderance of SLPs possess widths beneath 400 pixels, whilst the majority exhibit heights between 30 and 150 pixels. SLPs' character count extends from 2 to 40, and the uppermost 50 characters within SLPs incorporate not solely Chinese characters but English and numerals as well. Ships in this dataset originate from numerous ports spanning diverse cities and provinces throughout China.
             </span>
             
             <div>
@@ -1043,16 +1011,16 @@
             <!-- <div id="result_md"></div>
              -->
 
-            <span class="title_content">
+<!--             <span class="title_content">
                 Below are the creators and maintainers of our dataset. Please feel free to contact us for more
                 information:
-            </span>
-            <span class="title_content">
+            </span> -->
+<!--             <span class="title_content">
                 <li>Creator: <b><em>School of Computer and Information Engineering, Zhejiang Gongshang University</em>
                 </li></b>
                 <li>Maintainer: <b><em>School of Computer and Information Engineering, Zhejiang Gongshang
                             University</em></li></b>
-            </span>
+            </span> -->
 
 
 
