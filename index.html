@@ -1173,6 +1173,17 @@
                     Lu N, Yu W, Qi X, et al. Master: Multi-aspect non-local network for scene text recognition[J].
                     Pattern Recognition.2021: 117: 107980.
                 </li>
+
+                <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DT8S6WBBQ"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7DT8S6WBBQ');
+        </script>
+        
 		<div class="grid2" id="biography">
                      <a href="https://clustrmaps.com/site/1bqhf"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=QIwqH0C3zBkwBXW9nFDwm1KRkUtFi0dXVG45R84ROLw&cl=ffffff" width=300 height=100 /></a>
 	        </div>
@@ -1257,6 +1268,21 @@
     //     // 执行相应的操作
     //     myModal.hide()
     // })
+
+        // 获取访问者的IP地址并显示在页面上
+    function getIPAddress() {
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+        const ipAddress = data.ip;
+        document.getElementById('ip-address').textContent = ipAddress;
+        // 在此处将IP地址发送到服务器记录日志
+        })
+        .catch(error => console.error(error));
+    }
+
+    // 在页面加载完毕后调用getIPAddress函数
+    window.addEventListener('load', getIPAddress);
 
     var myImage = document.getElementById("mypoly");
 
