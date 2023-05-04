@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <title>Data_visualization</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=b6dfb38bd8dc0c9270de54ec309c46c3"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>IP分布地图</h2>
+
+      <div id="map-container" style="height: 500px; width: 1000px"></div>
+
+      <script>
+        // 初始化地图
+        var map = new AMap.Map("map-container", {
+          center: [114, 22],
+          zoom: 4,
+        });
+
+        // 将标记点添加到地图中
+        var data = {{locations|tojson}};
+        for (var i = 0; i < data.length; i++) {
+          var marker = new AMap.Marker({
+            position: [data[i][6], data[i][7]],
+            map: map,
+          });
+          map.add(marker);
+        }
+        console.log(data);
+      </script>
+
+   
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">ip</th>
+            <th scope="col">creat_time</th>
+            <th scope="col">addr</th>
+            <th scope="col">count</th>
+            <th scope="col">modify_time</th>
+            <th scope="col">longitude</th>
+            <th scope="col">latitude</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for location in locations %}
+          <tr>
+            <td>{{ location[0] }}</td>
+            <td>{{ location[1] }}</td>
+            <td>{{ location[2] }}</td>
+            <td>{{ location[3] }}</td>
+            <td>{{ location[4] }}</td>
+            <td>{{ location[5] }}</td>
+            <td>{{ location[6] }}</td>
+            <td>{{ location[7] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {{ pagination.links }}
+    </div>
+  </body>
+</html>

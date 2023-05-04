@@ -1,17 +1,25 @@
-from flask import Flask, request
+from flask import Flask, request,render_template
 app = Flask(__name__)
+from flask_cors import CORS
+CORS(app,resources=r'/*')
 from utils import check_ip
 import requests
 import pymysql
-from flask_cors import CORS
-CORS(app,resources=r'/*')
-
 conn = pymysql.connect(
     host='localhost',
     user='root',
-    password='YRQ21163x!',
+    passwd='YRQ21163x!',
     db='LQText16K',
 )
+
+
+import json
+from decimal import Decimal
+class DecimalEncoder(json.JSONEncoder):
+    def default(self,o):
+        if isinstance(o,Decimal):
+            return float(o)
+        super(DecimalEncoder,self).default(o)
 
 def get_ip(ip_str):
     import re
@@ -71,6 +79,33 @@ def index():
         conn.commit()
         return 'UPDATE FINISH!'
     
+
+
+from flask_paginate import Pagination
+
+
+@app.route('/dv',methods=['get'])
+def data_vis():
+    page = request.args.get('page', 1)
+    per_page = request.args.get('per_page', 20)
+    # 获取当前页码和每页显示的数量
+    page = int(page)
+    per_page = int(per_page)
+    offset = (page - 1) * per_page
+    # 查询 IP 地址和经纬度信息
+    cur.execute(f'SELECT * FROM ip_record ORDER BY modify_time DESC')
+    data = cur.fetchall()
+    # 对查询结果进行分页处理
+    pagination = Pagination(page=page, per_page=per_page, total=len(data), css_framework='bootstrap5')
+    data = data[offset: offset + per_page]
+    data = list(data)
+    # 渲染模板并返回页面
+    for col in range(len(data)):
+        for item in range(len(data[col])):
+            if isinstance(data[col][item],Decimal):
+                data[col][item] = float(data[col][item])
+    return render_template('data_visualization.html', locations=data, pagination=pagination)
+
     
 if __name__ == '__main__':
     cur = conn.cursor()
