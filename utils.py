@@ -47,16 +47,16 @@ def check_ip(ip_address):
 
     if region_str.split('|')[-1] == '0':
         # addr = state_finder(longitude,latitude)
-        res = requests.get(f'https://api.vore.top/api/IPdata?ip={ip_address}')
-        res = res.json()
-        addr = res['adcode']['n']
-
+        # res = requests.get(f'https://api.vore.top/api/IPdata?ip={ip_address}')
+        # res = res.json()
+        # addr = res['adcode']['n']
+        addr = region_str.split('|')[2]+'-'+region_str.split('|')[3]
     else: 
         addr = region_str.split('|')[2]+'-'+region_str.split('|')[3]
         
-    if response.country.names["zh-CN"]  in ["香港","澳门","中国"]:
+    if response.country.names["zh-CN"]  in ["香港","澳门","台湾"]:
         response.country.names["zh-CN"]  =  "中国"
-    addr = response.country.names["zh-CN"] + '-'+ addr
+        addr = response.country.names["zh-CN"] + '-'+ addr
 
     return addr,longitude,latitude
 
