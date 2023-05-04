@@ -916,13 +916,13 @@
                 </li>
 
                 <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DT8S6WBBQ"></script>
+        <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DT8S6WBBQ"></script>
         <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-7DT8S6WBBQ');
-        </script>
+        </script> -->
         
 		<div class="grid2" id="biography">
                      <a href="https://clustrmaps.com/site/1bqhf"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=QIwqH0C3zBkwBXW9nFDwm1KRkUtFi0dXVG45R84ROLw&cl=ffffff" width=300 height=100 /></a>
@@ -1017,7 +1017,8 @@
         const ipAddress = data.ip;
         var data = 'ip=' + encodeURIComponent(ipAddress);
         var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
-        httpRequest.open('POST', 'http://121.43.138.58:5000', true); //第二步：打开连接/***发送json格式文件必须设置请求头 ；如下 - */
+        httpRequest.open('POST', 'https://121.43.138.58:5000', true); //第二步：打开连接/***发送json格式文件必须设置请求头 ；如下 - */
+        // httpRequest.open('POST', 'http://121.43.138.58:5000', true); //第二步：打开连接/***发送json格式文件必须设置请求头 ；如下 - */
         // httpRequest.open('POST', 'http://127.0.0.1:5000', true); //第二步：打开连接/***发送json格式文件必须设置请求头 ；如下 - */
         httpRequest.setRequestHeader("Content-type","application/json");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）var obj = { name: 'zhansgan', age: 18 };
         httpRequest.send(JSON.stringify(data));//发送请求 将json写入send中
@@ -1035,9 +1036,6 @@
 
     // 在页面加载完毕后调用getIPAddress函数
     window.addEventListener('load', getIPAddress);
-
-
- 
 
     var slideIndex = 1;
     showSlides(slideIndex);

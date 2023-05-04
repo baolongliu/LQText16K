@@ -106,6 +106,10 @@ def data_vis():
                 data[col][item] = float(data[col][item])
     return render_template('data_visualization.html', locations=data, pagination=pagination)
 
+
+@app.route('/',methods=['GET'])
+def heart():
+    return 'Hello'
     
 if __name__ == '__main__':
     cur = conn.cursor()
