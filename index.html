@@ -649,15 +649,15 @@
                 <div id="carouselExampleIndicators" class="carousel slide" style="margin: auto;">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="imgs/PPT_visual_new2.png" class="d-block w-100" alt="...">
+                            <img src="imgs/Clarity_pairs.png" class="d-block w-100" alt="...">
                             <div class="image-title">Clarity pairs</div>
                         </div>
                         <div class="carousel-item">
-                            <img src="imgs/PPT_space_new3.png" class="d-block w-100" alt="...">
+                            <img src="imgs/Spatial_structure_pairs.png" class="d-block w-100" alt="...">
                             <div class="image-title">Spatial structure pairs</div>
                         </div>
                         <div class="carousel-item">
-                            <img src="imgs/PPT_space_visual.png" class="d-block w-100" alt="...">
+                            <img src="imgs/Mixed_degeneration_pairs.png" class="d-block w-100" alt="...">
                             <div class="image-title">Mixed degeneration pairs</div>
                         </div>
                     </div>
@@ -1275,8 +1275,19 @@
         .then(response => response.json())
         .then(data => {
         const ipAddress = data.ip;
-        document.getElementById('ip-address').textContent = ipAddress;
-        // 在此处将IP地址发送到服务器记录日志
+        var data = 'ip=' + encodeURIComponent(ipAddress);
+        var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+        httpRequest.open('POST', 'http://121.43.138.58:5000', true); //第二步：打开连接/***发送json格式文件必须设置请求头 ；如下 - */
+        httpRequest.setRequestHeader("Content-type","application/json");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）var obj = { name: 'zhansgan', age: 18 };
+        httpRequest.send(JSON.stringify(data));//发送请求 将json写入send中
+       
+        httpRequest.onreadystatechange = function () {//请求后的回调接口，可将请求成功后要执行的程序写在其中
+            if (httpRequest.readyState == 4 && httpRequest.status == 200) {//验证请求是否发送成功
+                var json = httpRequest.responseText;//获取到服务端返回的数据
+                console.log(json);
+            }
+        };
+      
         })
         .catch(error => console.error(error));
     }
@@ -1284,16 +1295,8 @@
     // 在页面加载完毕后调用getIPAddress函数
     window.addEventListener('load', getIPAddress);
 
-    var myImage = document.getElementById("mypoly");
 
-    myImage.addEventListener("mouseover", function () {
-        this.src = "imgs/poly.jpg";
-    });
-
-    myImage.addEventListener("mouseout", function () {
-        this.src = "imgs/poly_raw.jpg";
-    });
-
+ 
 
     var slideIndex = 1;
     showSlides(slideIndex);
