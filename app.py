@@ -11,8 +11,7 @@ conn = pymysql.connect(
     passwd='YRQ21163x!',
     db='LQText16K',
 )
-
-
+cur = conn.cursor()
 import json
 from decimal import Decimal
 class DecimalEncoder(json.JSONEncoder):
@@ -55,6 +54,7 @@ def index():
         WHERE 
             ip = '{ip_str}'; -- 替换为需要查询的id值
     '''
+    sql_str = f"SELECT COUNT(*) AS id_count FROM ip_record WHERE ip = '{ip_str}';"
     cur.execute(sql_str)
     # 获取结果
     result = cur.fetchall()
@@ -112,5 +112,7 @@ def heart():
     return 'Hello'
     
 if __name__ == '__main__':
-    cur = conn.cursor()
+    
     app.run()
+
+# python ~/ai_doctor/on_line/main_server/run_gunicorn.py  --certfile=/usr/local/nginx/conf/cert/9906446_iprecord.heitong.site.pem --keyfile=/usr/local/nginx/conf/cert/9906446_iprecord.heitong.site.key -w 1 -b 172.25.120.75:5000 app:app
